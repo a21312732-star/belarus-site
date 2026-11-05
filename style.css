@@ -258,7 +258,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; color: #ffffff; background-co
 .legal-text a { color: #ffffff; }
 
 /* Средние окна: шапка сжимается, чтобы все кнопки помещались в одну строку */
-@media (max-width: 1320px) and (min-width: 1201px) {
+@media (max-width: 1560px) and (min-width: 1201px) {
     .header { padding: 16px 30px; }
     .header-center-nav { gap: 8px; }
     .btn-nav-item, .btn-services-toggle { padding: 11px 14px; letter-spacing: 0.5px; }
@@ -351,3 +351,53 @@ body { font-family: 'Segoe UI', Arial, sans-serif; color: #ffffff; background-co
     .project-name { flex: 1 1 calc(100% - 50px); font-size: 18px; }
     .project-years { flex-basis: 100%; justify-content: flex-start; padding-left: 44px; }
 }
+
+/* ==========================================================================
+   11. СТРАНИЦА КОНТАКТОВ: быстрые действия, офисы, реквизиты
+   ========================================================================== */
+#contacts { scroll-margin-top: 110px; }
+.btn-nav-contacts { border-color: #ffffff; }
+.contacts-section { padding-top: 10px; margin-bottom: 60px; }
+.contacts-heading { font-size: clamp(28px, 4vw, 40px); font-weight: 900; text-transform: uppercase; letter-spacing: 0.5px; color: #ffffff; line-height: 1.1; }
+.contacts-sub { font-size: 17px; color: #c4baae; margin: 14px 0 32px; max-width: 700px; line-height: 1.6; }
+
+.contacts-quick { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+.contact-card { display: flex; flex-direction: column; gap: 6px; background: #1c1713; border: 1px solid #332a23; padding: 30px 32px; color: #ffffff; text-decoration: none; transition: border-color 0.2s ease, background 0.2s ease; }
+.contact-card:hover { border-color: #ffffff; }
+.contact-card-main { background: #ffffff; border-color: #ffffff; color: #0e0c0a; }
+.contact-card-main:hover { background: #e9e5e0; }
+.contact-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #a69e93; }
+.contact-card-main .contact-label, .contact-card-main .contact-note { color: #5a5048; }
+.contact-value { font-size: clamp(20px, 2.4vw, 28px); font-weight: 800; line-height: 1.25; overflow-wrap: anywhere; }
+.contact-note { font-size: 14px; color: #c4baae; line-height: 1.5; }
+.contact-action { margin-top: 14px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; }
+
+.contacts-offices { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.office-card { border: 1px solid #332a23; padding: 28px 32px; display: flex; flex-direction: column; gap: 6px; }
+.office-address { font-size: 19px; font-weight: 700; color: #ffffff; line-height: 1.4; }
+.office-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+.office-links a { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #ffffff; text-decoration: none; border: 1px solid #4a3f36; padding: 11px 16px; transition: all 0.2s ease; }
+.office-links a:hover { background: #ffffff; border-color: #ffffff; color: #0e0c0a; }
+
+.contacts-bottom { align-items: stretch; }
+.requisites-block { border: 1px solid #332a23; padding: 35px; height: 100%; }
+.requisites-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #ffffff; border-bottom: 1px solid #332a23; padding-bottom: 14px; margin-bottom: 20px; }
+.requisites-list dt { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a69e93; margin-top: 18px; }
+.requisites-list dt:first-child { margin-top: 0; }
+.requisites-list dd { font-size: 15px; color: #e3dbd0; line-height: 1.6; margin-top: 4px; }
+
+@media (max-width: 768px) {
+    .contacts-quick, .contacts-offices { grid-template-columns: 1fr; gap: 14px; }
+    .contacts-quick { margin-bottom: 14px; }
+    .contact-card, .office-card { padding: 22px 20px; }
+    .contacts-sub { font-size: 16px; margin-bottom: 24px; }
+    .requisites-block { padding: 24px 20px; }
+    .office-links a { flex: 1 1 auto; text-align: center; }
+}
+@media (max-width: 576px) {
+    .combined-contacts-right { padding: 24px 20px; }
+}
+.btn-services-toggle { white-space: nowrap; }
+@media (max-width: 1200px) { #contacts { scroll-margin-top: 100px; } }
+@media (max-width: 576px) { #contacts { scroll-margin-top: 215px; } }
+@media (max-width: 992px) { .contacts-bottom { gap: 24px; } .contacts-bottom .combined-contacts-right { order: -1; } }
