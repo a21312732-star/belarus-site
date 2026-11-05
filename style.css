@@ -491,3 +491,30 @@ body { font-family: 'Segoe UI', Arial, sans-serif; color: #ffffff; background-co
     .gallery-thumbs { gap: 6px; }
     .about-cta-actions, .about-cta-actions .btn { width: 100%; text-align: center; }
 }
+
+/* «О компании» на широких экранах: контент растягивается на всю ширину окна */
+@media (min-width: 1201px) {
+    .about-wrap, .about-hero-inner { max-width: 2200px; padding-left: clamp(30px, 4vw, 90px); padding-right: clamp(30px, 4vw, 90px); }
+    .about-hero-inner { padding-top: 110px; padding-bottom: 120px; }
+    .about-hero-lead { max-width: 1000px; }
+    .about-welcome-grid { grid-template-columns: 1.25fr 1fr; gap: clamp(50px, 5vw, 110px); }
+    .about-welcome-photo img { aspect-ratio: 16 / 9; }
+    .about-quote p { font-size: clamp(19px, 1.3vw, 24px); }
+    .about-partner-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: clamp(40px, 4vw, 90px); align-items: start; }
+    .about-partner-top .about-figures { grid-template-columns: 1fr; gap: 16px; margin-bottom: 0; }
+    .about-partner-top .about-figure { flex-direction: row; align-items: baseline; gap: 20px; }
+    .about-text { max-width: none; column-count: 2; column-gap: 50px; }
+    .about-text p { break-inside: avoid; }
+    .about-grid .service-details-card { padding: 34px; }
+    .about-gallery-grid { grid-template-columns: minmax(0, 4fr) minmax(0, 1fr); }
+    .gallery-main { aspect-ratio: 21 / 9; }
+    .projects-list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 70px; border-top: none; }
+    .projects-list .project-row { border-top: 1px solid #332a23; border-bottom: none; }
+    .projects-list .project-row:nth-last-child(-n+2) { border-bottom: 1px solid #332a23; }
+}
+@media (min-width: 1700px) {
+    .about-benefits { grid-template-columns: repeat(4, 1fr); }
+    .about-benefit { padding: 32px 30px; }
+    .about-benefit p { font-size: 15px; }
+    .about-text p { font-size: 18px; }
+}
