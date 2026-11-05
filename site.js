@@ -129,35 +129,26 @@
       });
     });
 
-    var dlg = document.getElementById('obj-dialog');
-    if (dlg && typeof dlg.showModal === 'function') {
-      var dlgTitle = dlg.querySelector('#obj-dialog-title');
-      var dlgBody = dlg.querySelector('.obj-dialog-body');
-      var lastBtn = null;
-      document.querySelectorAll('.obj-more').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var tpl = document.getElementById('obj-' + btn.getAttribute('data-obj'));
-          if (!tpl) return;
-          var card = btn.closest('.obj-card');
-          var year = btn.closest('.obj-year');
-          dlgTitle.textContent = card.querySelector('.obj-name').textContent + (year ? ' · ' + year.getAttribute('data-year') : '');
-          dlgBody.innerHTML = '';
-          dlgBody.appendChild(tpl.content.cloneNode(true));
-          lastBtn = btn;
-          document.body.classList.add('dialog-open');
-          dlg.showModal();
-          dlg.scrollTop = 0;
-        });
+    document.querySelectorAll('.obj-more').forEach(function (btn) {
+      var det = document.getElementById(btn.getAttribute('aria-controls'));
+      var card = btn.closest('.obj-card');
+      if (!det || !card) return;
+      btn.addEventListener('click', function () {
+        var open = !card.classList.contains('is-open');
+        card.classList.toggle('is-open', open);
+        det.hidden = !open;
+        btn.setAttribute('aria-expanded', String(open));
+        btn.textContent = open ? 'Свернуть' : 'Подробнее';
+        if (open) {
+          var top = card.getBoundingClientRect().top;
+          var header = document.querySelector('.header');
+          var offset = header ? header.offsetHeight + 16 : 16;
+          if (top < offset || top > window.innerHeight * 0.5) {
+            window.scrollTo({ top: window.pageYOffset + top - offset, behavior: 'smooth' });
+          }
+        }
       });
-      dlg.querySelector('.obj-dialog-close').addEventListener('click', function () { dlg.close(); });
-      dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
-      dlg.addEventListener('close', function () {
-        document.body.classList.remove('dialog-open');
-        if (lastBtn) lastBtn.focus();
-      });
-    } else {
-      document.querySelectorAll('.obj-more').forEach(function (b) { b.hidden = true; });
-    }
+    });
 
     /* ---------- Формы заявок ---------- */
     var contactLine = (cfg.phone || '') + (cfg.email ? ' или напишите на ' + cfg.email : '');

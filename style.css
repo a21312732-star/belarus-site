@@ -586,3 +586,37 @@ body.dialog-open { overflow: hidden; }
 .obj-card.has-photo .obj-city, .obj-card.has-photo .obj-name { text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
 .obj-card.has-photo .obj-city { color: #ffffff; }
 .obj-card.has-photo .obj-city::before { border-color: #ffffff; }
+
+/* «О компании»: один показатель рядом с текстом */
+@media (min-width: 1201px) {
+    .about-partner-top { grid-template-columns: minmax(260px, 0.6fr) minmax(0, 2fr); }
+    .about-partner-top .about-figure { flex-direction: column; align-items: flex-start; gap: 8px; padding: 32px; }
+}
+.about-partner { padding-bottom: 70px; }
+
+/* Проекты: «Подробнее» раскрывает плитку на весь ряд, текст поверх фото */
+.obj-card.is-open { grid-column: 1 / -1; aspect-ratio: auto; min-height: 460px; justify-content: flex-start; }
+.obj-card.is-open .obj-media::after { background: linear-gradient(90deg, rgba(14,12,10,0.94) 0%, rgba(14,12,10,0.86) 55%, rgba(14,12,10,0.6) 100%); }
+.obj-card.is-open .obj-media img { transform: none; }
+.obj-card.is-open .obj-body { padding: 34px 38px; gap: 8px; }
+.obj-card.is-open .obj-name { font-size: clamp(24px, 2.4vw, 34px); }
+.obj-more::after { content: none; }
+.obj-card.is-open .obj-more { order: 10; margin-top: 18px; background: #ffffff; color: #0e0c0a; border-color: #ffffff; }
+.obj-details { margin-top: 18px; max-width: 1100px; animation: obj-fade 0.25s ease; }
+.obj-details[hidden] { display: none; }
+@keyframes obj-fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.obj-det-grid { margin-bottom: 22px; }
+.obj-det-grid .obj-dlg-info { background: transparent; border: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 30px; }
+.obj-det-grid .obj-dlg-info > dt { grid-row: 1; }
+.obj-det-grid .obj-dlg-info > dd { grid-row: 2; border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+.obj-details .obj-dlg-h { color: #ffffff; margin-top: 4px; }
+.obj-details .obj-dlg-list { color: #f0ebe5; }
+.obj-details dd, .obj-details li { text-shadow: 0 1px 6px rgba(0,0,0,0.5); }
+@media (max-width: 768px) {
+    .obj-card.is-open .obj-body { padding: 22px 20px; }
+    .obj-card.is-open .obj-media::after { background: rgba(14,12,10,0.88); }
+    .obj-det-grid .obj-dlg-info { grid-template-columns: 1fr; }
+    .obj-det-grid .obj-dlg-info > dt, .obj-det-grid .obj-dlg-info > dd { grid-row: auto; }
+    .obj-det-grid .obj-dlg-info > dd { margin-bottom: 14px; }
+    .obj-card.is-open { aspect-ratio: auto; }
+}
