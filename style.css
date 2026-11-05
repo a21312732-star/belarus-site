@@ -401,3 +401,93 @@ body { font-family: 'Segoe UI', Arial, sans-serif; color: #ffffff; background-co
 @media (max-width: 1200px) { #contacts { scroll-margin-top: 100px; } }
 @media (max-width: 576px) { #contacts { scroll-margin-top: 215px; } }
 @media (max-width: 992px) { .contacts-bottom { gap: 24px; } .contacts-bottom .combined-contacts-right { order: -1; } }
+
+/* ==========================================================================
+   12. СТРАНИЦА «О КОМПАНИИ»
+   ========================================================================== */
+.about-wrap { max-width: 1240px; margin: 0 auto; padding: 0 60px; }
+.about-tag { display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #0e0c0a; background: #ffffff; padding: 6px 12px; margin-bottom: 18px; }
+.about-h2 { font-size: clamp(26px, 3.2vw, 38px); font-weight: 900; text-transform: uppercase; color: #ffffff; line-height: 1.15; letter-spacing: 0.3px; margin-bottom: 28px; }
+.about-h3 { font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #ffffff; border-bottom: 1px solid #332a23; padding-bottom: 14px; margin: 60px 0 26px; }
+
+/* 1. Баннер */
+.about-hero { background: linear-gradient(90deg, rgba(14,12,10,0.94) 0%, rgba(14,12,10,0.8) 55%, rgba(14,12,10,0.55) 100%), url('img/about/hero.jpg') center / cover no-repeat; border-bottom: 1px solid #332a23; }
+.about-hero-inner { max-width: 1240px; margin: 0 auto; padding: 90px 60px 100px; }
+.breadcrumbs { font-size: 12px; color: #a69e93; margin-bottom: 26px; display: flex; flex-wrap: wrap; gap: 8px; }
+.breadcrumbs a { color: #c4baae; text-decoration: none; }
+.breadcrumbs a:hover { color: #ffffff; }
+.breadcrumbs [aria-current] { color: #ffffff; }
+.about-hero-title { font-size: clamp(36px, 5vw, 60px); font-weight: 900; text-transform: uppercase; line-height: 1.05; color: #ffffff; margin-bottom: 24px; }
+.about-hero-lead { font-size: clamp(16px, 1.5vw, 19px); line-height: 1.7; color: #e3dbd0; max-width: 760px; }
+
+/* 2. Приветствие */
+.about-welcome { padding: 100px 0; border-bottom: 1px solid #332a23; }
+.about-welcome-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+.about-welcome-photo img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border: 1px solid #332a23; }
+.about-quote { position: relative; border-left: 3px solid #ffffff; padding: 6px 0 6px 28px; }
+.about-quote p { font-size: 19px; line-height: 1.7; color: #e3dbd0; font-style: italic; margin-bottom: 24px; }
+.about-quote footer strong { display: block; color: #ffffff; font-size: 15px; }
+.about-quote footer span { font-size: 13px; color: #a69e93; }
+
+/* 3. Надёжный партнёр */
+.about-partner { padding: 100px 0 90px; }
+.about-figures { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 44px; }
+.about-figure { border: 1px solid #332a23; background: #1c1713; padding: 26px 28px; display: flex; flex-direction: column; gap: 6px; }
+.about-figure-num { font-size: clamp(40px, 4.5vw, 56px); font-weight: 900; line-height: 1; color: #ffffff; letter-spacing: -1px; }
+.about-figure-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a69e93; }
+.about-text { max-width: 900px; }
+.about-text p { font-size: 17px; line-height: 1.75; color: #e3dbd0; margin-bottom: 18px; }
+.about-grid .service-details-card h4 { font-size: 16px; font-weight: 800; text-transform: uppercase; color: #ffffff; margin-bottom: 15px; letter-spacing: 0.5px; }
+.about-benefits { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid #332a23; border-left: 1px solid #332a23; }
+.about-benefit { padding: 26px 24px; border-right: 1px solid #332a23; border-bottom: 1px solid #332a23; }
+.about-benefit h4 { font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: #ffffff; margin-bottom: 10px; padding-left: 26px; position: relative; }
+.about-benefit h4::before { content: ""; position: absolute; left: 2px; top: 4px; width: 12px; height: 6px; border-left: 2px solid #ffffff; border-bottom: 2px solid #ffffff; transform: rotate(-45deg); }
+.about-benefit p { font-size: 14px; line-height: 1.6; color: #c4baae; }
+
+/* 4. Галерея */
+.about-gallery { padding: 0 0 100px; }
+.about-gallery-grid { display: grid; grid-template-columns: 3fr 1fr; gap: 16px; }
+.gallery-main { position: relative; background: #1c1713; border: 1px solid #332a23; aspect-ratio: 16 / 10; overflow: hidden; }
+.gallery-main img { width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.25s ease; }
+.gallery-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; background: rgba(14,12,10,0.75); color: #ffffff; border: 1px solid rgba(255,255,255,0.3); font-size: 28px; line-height: 1; cursor: pointer; transition: background 0.2s ease; }
+.gallery-arrow:hover { background: #ffffff; color: #0e0c0a; }
+.gallery-prev { left: 16px; }
+.gallery-next { right: 16px; }
+.gallery-thumbs { display: grid; grid-template-rows: repeat(5, minmax(0, 1fr)); gap: 12px; height: 0; min-height: 100%; }
+.gallery-thumb { padding: 0; border: 2px solid transparent; background: #1c1713; cursor: pointer; overflow: hidden; opacity: 0.6; transition: opacity 0.2s ease, border-color 0.2s ease; min-height: 0; }
+.gallery-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gallery-thumb:hover { opacity: 0.9; }
+.gallery-thumb.is-active { opacity: 1; border-color: #ffffff; }
+
+/* 5. Проекты и 6. Призыв */
+.about-projects { padding: 90px 0; border-top: 1px solid #332a23; }
+.about-projects .about-h2 { font-size: clamp(22px, 2.6vw, 30px); }
+.about-cta { background: #1c1713; border-top: 1px solid #332a23; padding: 70px 0; }
+.about-cta-inner { display: flex; justify-content: space-between; align-items: center; gap: 40px; flex-wrap: wrap; }
+.about-cta .about-h2 { margin-bottom: 10px; }
+.about-cta p { color: #c4baae; font-size: 16px; }
+.about-cta-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+@media (max-width: 1200px) {
+    .about-wrap, .about-hero-inner { padding-left: 30px; padding-right: 30px; }
+    .about-benefits { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 992px) {
+    .about-welcome-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-gallery-grid { grid-template-columns: 1fr; }
+    .gallery-thumbs { grid-template-rows: none; grid-template-columns: repeat(5, 1fr); height: auto; min-height: 0; }
+    .gallery-thumb { aspect-ratio: 4 / 3; }
+}
+@media (max-width: 576px) {
+    .about-wrap, .about-hero-inner { padding-left: 20px; padding-right: 20px; }
+    .about-hero-inner { padding-top: 50px; padding-bottom: 60px; }
+    .about-welcome, .about-partner, .about-projects { padding: 60px 0; }
+    .about-gallery { padding-bottom: 60px; }
+    .about-figures { grid-template-columns: 1fr; gap: 12px; }
+    .about-figure { flex-direction: row; align-items: baseline; gap: 14px; padding: 18px 20px; }
+    .about-benefits { grid-template-columns: 1fr; }
+    .about-quote p { font-size: 17px; }
+    .gallery-arrow { width: 40px; height: 40px; font-size: 24px; }
+    .gallery-thumbs { gap: 6px; }
+    .about-cta-actions, .about-cta-actions .btn { width: 100%; text-align: center; }
+}

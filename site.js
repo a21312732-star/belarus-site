@@ -89,6 +89,32 @@
       });
     });
 
+    /* ---------- Галерея на странице «О компании» ---------- */
+    var gMain = document.getElementById('gallery-main-img');
+    var gThumbs = Array.prototype.slice.call(document.querySelectorAll('.gallery-thumb'));
+    if (gMain && gThumbs.length) {
+      var gIdx = 0;
+      var showPhoto = function (i) {
+        gIdx = (i + gThumbs.length) % gThumbs.length;
+        var t = gThumbs[gIdx];
+        gMain.src = t.getAttribute('data-src');
+        gMain.alt = t.getAttribute('data-alt') || '';
+        gThumbs.forEach(function (b, k) {
+          b.classList.toggle('is-active', k === gIdx);
+          b.setAttribute('aria-pressed', String(k === gIdx));
+        });
+      };
+      gThumbs.forEach(function (b, k) {
+        b.setAttribute('aria-label', 'Фото ' + (k + 1) + ': ' + (b.getAttribute('data-alt') || ''));
+        b.addEventListener('click', function () { showPhoto(k); });
+      });
+      var prev = document.querySelector('.gallery-prev');
+      var next = document.querySelector('.gallery-next');
+      if (prev) prev.addEventListener('click', function () { showPhoto(gIdx - 1); });
+      if (next) next.addEventListener('click', function () { showPhoto(gIdx + 1); });
+      showPhoto(0);
+    }
+
     /* ---------- Формы заявок ---------- */
     var contactLine = (cfg.phone || '') + (cfg.email ? ' или напишите на ' + cfg.email : '');
 
