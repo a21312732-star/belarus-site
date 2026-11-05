@@ -518,3 +518,71 @@ body { font-family: 'Segoe UI', Arial, sans-serif; color: #ffffff; background-co
     .about-benefit p { font-size: 15px; }
     .about-text p { font-size: 18px; }
 }
+
+/* ==========================================================================
+   13. «О КОМПАНИИ»: ПРОЕКТЫ ПЛИТКОЙ (по образцу каталога объектов)
+   ========================================================================== */
+.projects-lead { font-size: 17px; color: #c4baae; margin: -12px 0 28px; max-width: 900px; }
+.obj-filter { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
+.obj-filter-btn { background: transparent; border: 1px solid #4a3f36; color: #ffffff; padding: 11px 20px; font: inherit; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all 0.2s ease; }
+.obj-filter-btn:hover { border-color: #ffffff; }
+.obj-filter-btn.is-active { background: #ffffff; border-color: #ffffff; color: #0e0c0a; }
+.obj-year { margin-bottom: 50px; }
+.obj-year[hidden] { display: none; }
+.obj-year-title { display: flex; align-items: baseline; gap: 14px; font-size: 26px; font-weight: 900; color: #ffffff; text-transform: uppercase; border-bottom: 1px solid #332a23; padding-bottom: 14px; margin-bottom: 22px; }
+.obj-year-title span { font-size: 12px; font-weight: 700; letter-spacing: 1px; color: #a69e93; }
+.obj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
+.obj-card { position: relative; aspect-ratio: 4 / 3; overflow: hidden; border: 1px solid #332a23; background: #1c1713; display: flex; flex-direction: column; justify-content: flex-end; }
+.obj-media { position: absolute; inset: 0; }
+.obj-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+.obj-card:hover .obj-media img { transform: scale(1.04); }
+.obj-card.has-photo .obj-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,12,10,0) 35%, rgba(14,12,10,0.92) 100%); }
+.obj-card:not(.has-photo) { background: linear-gradient(135deg, #241d18 0%, #15110e 100%); }
+.obj-card:not(.has-photo)::before { content: ""; position: absolute; right: -40px; top: -30px; width: 220px; height: 200px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,15 90,85 10,85' fill='none' stroke='%23ffffff' stroke-width='6'/%3E%3Cline x1='22' y1='68' x2='78' y2='68' stroke='%23ffffff' stroke-width='5'/%3E%3C/svg%3E") center / contain no-repeat; opacity: 0.05; }
+.obj-mark { position: absolute; left: 24px; right: 24px; top: 22px; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #6f655b; }
+.obj-body { position: relative; padding: 22px 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.obj-city { font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #c4baae; padding-left: 16px; position: relative; }
+.obj-city::before { content: ""; position: absolute; left: 0; top: 3px; width: 8px; height: 8px; border: 2px solid #c4baae; border-radius: 50% 50% 50% 0 !important; transform: rotate(-45deg); }
+.obj-name { font-size: 22px; font-weight: 800; color: #ffffff; line-height: 1.25; overflow-wrap: anywhere; }
+.obj-more { margin-top: 10px; background: transparent; border: 1px solid rgba(255,255,255,0.6); color: #ffffff; padding: 10px 18px; font: inherit; font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; cursor: pointer; transition: all 0.2s ease; }
+.obj-more:hover { background: #ffffff; color: #0e0c0a; border-color: #ffffff; }
+.obj-more::after { content: ""; position: absolute; inset: 0; }
+
+/* Окно «Подробнее» */
+.obj-dialog { width: min(1100px, calc(100vw - 32px)); max-height: calc(100vh - 32px); margin: auto; padding: 0; background: #1c1713; color: #ffffff; border: 1px solid #4a3f36; overflow: auto; }
+.obj-dialog::backdrop { background: rgba(0,0,0,0.75); }
+.obj-dialog-head { position: sticky; top: 0; z-index: 1; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 22px 28px; background: #1c1713; border-bottom: 1px solid #332a23; }
+.obj-dialog-head h3 { font-size: 24px; font-weight: 900; text-transform: uppercase; }
+.obj-dialog-close { flex: 0 0 auto; width: 44px; height: 44px; background: transparent; border: 1px solid #4a3f36; color: #ffffff; font-size: 28px; line-height: 1; cursor: pointer; }
+.obj-dialog-close:hover { background: #ffffff; color: #0e0c0a; }
+.obj-dialog-body { padding: 28px; }
+.obj-dlg-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 24px; margin-bottom: 30px; }
+.obj-dlg-photo img { width: 100%; height: 100%; max-height: 460px; object-fit: cover; display: block; border: 1px solid #332a23; background: #0e0c0a; }
+.obj-dlg-info { background: #0e0c0a; border: 1px solid #332a23; padding: 24px; }
+.obj-dlg-info dt { font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #a69e93; }
+.obj-dlg-info dd { font-size: 16px; color: #ffffff; line-height: 1.5; margin: 6px 0 0; padding-bottom: 18px; margin-bottom: 18px; border-bottom: 1px solid #332a23; }
+.obj-dlg-info dd:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.obj-dlg-h { font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #ffffff; margin: 0 0 12px; }
+.obj-dlg-list { margin: 0 0 26px 20px; color: #e3dbd0; font-size: 15px; line-height: 1.7; }
+.obj-dlg-list li { margin-bottom: 6px; }
+body.dialog-open { overflow: hidden; }
+
+@media (min-width: 1201px) { .obj-grid { grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); } }
+@media (max-width: 768px) {
+    .obj-dlg-grid { grid-template-columns: 1fr; }
+    .obj-dialog-head { padding: 16px 18px; }
+    .obj-dialog-head h3 { font-size: 18px; }
+    .obj-dialog-body { padding: 18px; }
+}
+@media (max-width: 576px) {
+    .obj-grid { grid-template-columns: 1fr; gap: 12px; }
+    .obj-card { aspect-ratio: 16 / 10; }
+    .obj-name { font-size: 20px; }
+    .obj-year-title { font-size: 22px; }
+    .obj-filter-btn { flex: 1 1 auto; padding: 10px 12px; }
+}
+@media (max-width: 576px) { .obj-filter { flex-wrap: nowrap; gap: 6px; } .obj-filter-btn { flex: 1 1 0; padding: 10px 4px; letter-spacing: 0.5px; } }
+.obj-card.has-photo .obj-media::after { background: linear-gradient(180deg, rgba(14,12,10,0) 15%, rgba(14,12,10,0.55) 50%, rgba(14,12,10,0.95) 100%); }
+.obj-card.has-photo .obj-city, .obj-card.has-photo .obj-name { text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
+.obj-card.has-photo .obj-city { color: #ffffff; }
+.obj-card.has-photo .obj-city::before { border-color: #ffffff; }

@@ -115,6 +115,50 @@
       showPhoto(0);
     }
 
+    /* ---------- Проекты: фильтр по годам и окно «Подробнее» ---------- */
+    var fBtns = Array.prototype.slice.call(document.querySelectorAll('.obj-filter-btn'));
+    var fYears = Array.prototype.slice.call(document.querySelectorAll('.obj-year'));
+    fBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var y = btn.getAttribute('data-year');
+        fBtns.forEach(function (b) {
+          b.classList.toggle('is-active', b === btn);
+          b.setAttribute('aria-pressed', String(b === btn));
+        });
+        fYears.forEach(function (sec) { sec.hidden = !(y === 'all' || sec.getAttribute('data-year') === y); });
+      });
+    });
+
+    var dlg = document.getElementById('obj-dialog');
+    if (dlg && typeof dlg.showModal === 'function') {
+      var dlgTitle = dlg.querySelector('#obj-dialog-title');
+      var dlgBody = dlg.querySelector('.obj-dialog-body');
+      var lastBtn = null;
+      document.querySelectorAll('.obj-more').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var tpl = document.getElementById('obj-' + btn.getAttribute('data-obj'));
+          if (!tpl) return;
+          var card = btn.closest('.obj-card');
+          var year = btn.closest('.obj-year');
+          dlgTitle.textContent = card.querySelector('.obj-name').textContent + (year ? ' · ' + year.getAttribute('data-year') : '');
+          dlgBody.innerHTML = '';
+          dlgBody.appendChild(tpl.content.cloneNode(true));
+          lastBtn = btn;
+          document.body.classList.add('dialog-open');
+          dlg.showModal();
+          dlg.scrollTop = 0;
+        });
+      });
+      dlg.querySelector('.obj-dialog-close').addEventListener('click', function () { dlg.close(); });
+      dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+      dlg.addEventListener('close', function () {
+        document.body.classList.remove('dialog-open');
+        if (lastBtn) lastBtn.focus();
+      });
+    } else {
+      document.querySelectorAll('.obj-more').forEach(function (b) { b.hidden = true; });
+    }
+
     /* ---------- Формы заявок ---------- */
     var contactLine = (cfg.phone || '') + (cfg.email ? ' или напишите на ' + cfg.email : '');
 

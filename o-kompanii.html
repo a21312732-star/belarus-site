@@ -155,29 +155,142 @@
             </div>
         </section>
 
-        <!-- 5. Проекты -->
-        <section class="about-projects">
+        <!-- 5. Проекты: плитка по годам, «Подробнее» открывает карточку объекта -->
+        <section class="about-projects" id="projects" aria-labelledby="projects-title">
             <div class="about-wrap">
-                <span class="about-tag">Опыт</span>
-                <h2 class="about-h2">Заказчики, для которых мы выполняли работы в 2023–2026 годах</h2>
-                <div class="projects-list">
-                    <article class="project-row"><span class="project-num" aria-hidden="true">01</span><h3 class="project-name">«АЛКОПАК»</h3><div class="project-years" aria-label="Годы работы"><span class="project-year">2026</span><span class="project-year">2024</span><span class="project-year">2023</span></div></article>
-                    <article class="project-row"><span class="project-num" aria-hidden="true">02</span><h3 class="project-name">«Адвин Смарт Фэктори»</h3><div class="project-years" aria-label="Годы работы"><span class="project-year">2026</span><span class="project-year">2024</span></div></article>
-                    <article class="project-row"><span class="project-num" aria-hidden="true">03</span><h3 class="project-name">«Безопасность Плюс»</h3><div class="project-years" aria-label="Годы работы"><span class="project-year">2026</span><span class="project-year">2025</span></div></article>
-                    <article class="project-row"><span class="project-num" aria-hidden="true">04</span><h3 class="project-name">«Белпромстрой»</h3><div class="project-years" aria-label="Годы работы"><span class="project-year">2026</span><span class="project-year">2025</span></div></article>
-                    <article class="project-row"><span class="project-num" aria-hidden="true">05</span><h3 class="project-name">«Центрэнергомонтаж»</h3><div class="project-years" aria-label="Годы работы"><span class="project-year">2026</span><span class="project-year">2025</span></div></article>
-                    <article class="project-row"><span class="project-num" aria-hidden="true">06</span><h3 class="project-name">«Электроцентрмонтаж»</h3><div class="project-years" aria-label="Годы работы"><span class="project-year">2026</span><span class="project-year">2025</span></div></article>
-                    <article class="project-row"><span class="project-num" aria-hidden="true">07</span><h3 class="project-name">«Домлюксинвест»</h3><div class="project-years" aria-label="Годы работы"><span class="project-year">2026</span></div></article>
-                    <article class="project-row"><span class="project-num" aria-hidden="true">08</span><h3 class="project-name">«Гомельвторчермет»</h3><div class="project-years" aria-label="Годы работы"><span class="project-year">2025</span></div></article>
-                    <article class="project-row"><span class="project-num" aria-hidden="true">09</span><h3 class="project-name">«Ельское»</h3><div class="project-years" aria-label="Годы работы"><span class="project-year">2025</span></div></article>
-                    <article class="project-row"><span class="project-num" aria-hidden="true">10</span><h3 class="project-name">«ЛОДЭ»</h3><div class="project-years" aria-label="Годы работы"><span class="project-year">2025</span></div></article>
-                    <article class="project-row"><span class="project-num" aria-hidden="true">11</span><h3 class="project-name">УП «АЛКОПАК»</h3><div class="project-years" aria-label="Годы работы"><span class="project-year">2025</span></div></article>
-                    <article class="project-row"><span class="project-num" aria-hidden="true">12</span><h3 class="project-name">«Мультипак»</h3><div class="project-years" aria-label="Годы работы"><span class="project-year">2024</span><span class="project-year">2023</span></div></article>
-                    <article class="project-row"><span class="project-num" aria-hidden="true">13</span><h3 class="project-name">«РУЭЛТА»</h3><div class="project-years" aria-label="Годы работы"><span class="project-year">2024</span></div></article>
-                    <article class="project-row"><span class="project-num" aria-hidden="true">14</span><h3 class="project-name">«СпецМашиностроение»</h3><div class="project-years" aria-label="Годы работы"><span class="project-year">2024</span></div></article>
-                    <article class="project-row"><span class="project-num" aria-hidden="true">15</span><h3 class="project-name">«СтанкоГомель»</h3><div class="project-years" aria-label="Годы работы"><span class="project-year">2024</span></div></article>
-                    <article class="project-row"><span class="project-num" aria-hidden="true">16</span><h3 class="project-name">«ФэтСит»</h3><div class="project-years" aria-label="Годы работы"><span class="project-year">2024</span></div></article>
-                    <article class="project-row"><span class="project-num" aria-hidden="true">17</span><h3 class="project-name">«АИР-Сервис»</h3><div class="project-years" aria-label="Годы работы"><span class="project-year">2023</span></div></article>
+                <span class="about-tag">Проекты</span>
+                <h2 class="about-h2" id="projects-title">Проекты строительной компании «АльтерБелТех»</h2>
+                <p class="projects-lead">Объекты, на которых мы работали с начала основания организации в 2023 году.</p>
+                <div class="obj-filter" role="group" aria-label="Фильтр по годам">
+                    <button type="button" class="obj-filter-btn is-active" data-year="all" aria-pressed="true">Все</button>
+                    <button type="button" class="obj-filter-btn" data-year="2023" aria-pressed="false">2023</button>
+                    <button type="button" class="obj-filter-btn" data-year="2024" aria-pressed="false">2024</button>
+                    <button type="button" class="obj-filter-btn" data-year="2025" aria-pressed="false">2025</button>
+                    <button type="button" class="obj-filter-btn" data-year="2026" aria-pressed="false">2026</button>
+                </div>
+                <div class="obj-year" data-year="2023">
+                    <h3 class="obj-year-title">2023 год <span>3 объекта</span></h3>
+                    <div class="obj-grid">
+                        <article class="obj-card has-photo">
+                            <div class="obj-media"><img src="img/projects/alkopak.jpg" alt="Производственный корпус завода «АЛКОПАК»" loading="lazy"></div>
+                            <div class="obj-body"><span class="obj-city">г. Гомель</span><h4 class="obj-name">«АЛКОПАК»</h4><button type="button" class="obj-more" data-obj="alkopak-2023">Подробнее</button></div>
+                        </article>
+                        <article class="obj-card has-photo">
+                            <div class="obj-media"><img src="img/projects/air-servis.jpg" alt="Административно-бытовой корпус «АИР-Сервис»" loading="lazy"></div>
+                            <div class="obj-body"><span class="obj-city">Минский район</span><h4 class="obj-name">«АИР-Сервис»</h4><button type="button" class="obj-more" data-obj="air-2023">Подробнее</button></div>
+                        </article>
+                        <article class="obj-card has-photo">
+                            <div class="obj-media"><img src="img/projects/multipak.jpg" alt="Логотип «Мультипак»" loading="lazy" style="object-position: top"></div>
+                            <div class="obj-body"><span class="obj-city">г. Гомель</span><h4 class="obj-name">«Мультипак»</h4><button type="button" class="obj-more" data-obj="multipak-2023">Подробнее</button></div>
+                        </article>
+                    </div>
+                </div>
+                <div class="obj-year" data-year="2024">
+                    <h3 class="obj-year-title">2024 год <span>7 объектов</span></h3>
+                    <div class="obj-grid">
+                        <article class="obj-card">
+                            <div class="obj-media"></div>
+                            <div class="obj-body"><span class="obj-city">Минский район</span><h4 class="obj-name">«СпецМашиностроение»</h4></div>
+                        </article>
+                        <article class="obj-card">
+                            <div class="obj-media"></div>
+                            <div class="obj-body"><span class="obj-city">г. Гомель</span><h4 class="obj-name">«СтанкоГомель»</h4></div>
+                        </article>
+                        <article class="obj-card">
+                            <div class="obj-media"></div>
+                            <div class="obj-body"><span class="obj-city">г. Гомель</span><h4 class="obj-name">«Мультипак»</h4></div>
+                        </article>
+                        <article class="obj-card">
+                            <div class="obj-media"></div>
+                            <div class="obj-body"><span class="obj-city">г. Гомель</span><h4 class="obj-name">«ФэтСит»</h4></div>
+                        </article>
+                        <article class="obj-card">
+                            <div class="obj-media"></div>
+                            <div class="obj-body"><span class="obj-city">Минский район</span><h4 class="obj-name">«Адвин Смарт Фэктори»</h4></div>
+                        </article>
+                        <article class="obj-card">
+                            <div class="obj-media"></div>
+                            <div class="obj-body"><span class="obj-city">г. Гомель</span><h4 class="obj-name">«АЛКОПАК»</h4></div>
+                        </article>
+                        <article class="obj-card">
+                            <div class="obj-media"></div>
+                            <div class="obj-body"><span class="obj-city">г. Гомель</span><h4 class="obj-name">«РУЭЛТА»</h4></div>
+                        </article>
+                    </div>
+                </div>
+                <div class="obj-year" data-year="2025">
+                    <h3 class="obj-year-title">2025 год <span>8 объектов</span></h3>
+                    <div class="obj-grid">
+                        <article class="obj-card">
+                            <div class="obj-media"></div>
+                            <div class="obj-body"><span class="obj-city">г. Гомель</span><h4 class="obj-name">УП «АЛКОПАК»</h4></div>
+                        </article>
+                        <article class="obj-card">
+                            <div class="obj-media"></div>
+                            <div class="obj-body"><span class="obj-city">Великий Камень</span><h4 class="obj-name">«Безопасность Плюс»</h4></div>
+                        </article>
+                        <article class="obj-card">
+                            <div class="obj-media"></div>
+                            <div class="obj-body"><span class="obj-city">г. Минск</span><h4 class="obj-name">«Белпромстрой»</h4></div>
+                        </article>
+                        <article class="obj-card">
+                            <div class="obj-media"></div>
+                            <div class="obj-body"><span class="obj-city">Гомельская область</span><h4 class="obj-name">«Ельское»</h4></div>
+                        </article>
+                        <article class="obj-card">
+                            <div class="obj-media"></div>
+                            <div class="obj-body"><span class="obj-city">г. Светлогорск</span><h4 class="obj-name">«Гомельвторчермет»</h4></div>
+                        </article>
+                        <article class="obj-card">
+                            <div class="obj-media"></div>
+                            <div class="obj-body"><h4 class="obj-name">«Центрэнергомонтаж»</h4></div>
+                        </article>
+                        <article class="obj-card">
+                            <div class="obj-media"></div>
+                            <div class="obj-body"><h4 class="obj-name">«Электроцентрмонтаж»</h4></div>
+                        </article>
+                        <article class="obj-card">
+                            <div class="obj-media"></div>
+                            <div class="obj-body"><span class="obj-city">г. Минск</span><h4 class="obj-name">«ЛОДЭ»</h4></div>
+                        </article>
+                    </div>
+                </div>
+                <div class="obj-year" data-year="2026">
+                    <h3 class="obj-year-title">2026 год <span>8 объектов</span></h3>
+                    <div class="obj-grid">
+                        <article class="obj-card">
+                            <div class="obj-media"></div>
+                            <div class="obj-body"><span class="obj-city">г. Минск</span><h4 class="obj-name">«Электроцентрмонтаж»</h4></div>
+                        </article>
+                        <article class="obj-card">
+                            <div class="obj-media"></div>
+                            <div class="obj-body"><span class="obj-city">г. Гомель</span><h4 class="obj-name">«АЛКОПАК»</h4></div>
+                        </article>
+                        <article class="obj-card">
+                            <div class="obj-media"></div>
+                            <div class="obj-body"><span class="obj-city">Минский район</span><h4 class="obj-name">«Адвин Смарт Фэктори»</h4></div>
+                        </article>
+                        <article class="obj-card">
+                            <div class="obj-media"></div>
+                            <div class="obj-body"><span class="obj-city">г. Гомель</span><h4 class="obj-name">«Центрэнергомонтаж»</h4></div>
+                        </article>
+                        <article class="obj-card">
+                            <div class="obj-media"></div>
+                            <div class="obj-body"><span class="obj-city">г. Минск</span><h4 class="obj-name">«Белпромстрой»</h4></div>
+                        </article>
+                        <article class="obj-card">
+                            <div class="obj-media"></div>
+                            <div class="obj-body"><span class="obj-city">г. Гомель</span><h4 class="obj-name">«Домлюксинвест»</h4></div>
+                        </article>
+                        <article class="obj-card">
+                            <div class="obj-media"></div>
+                            <div class="obj-body"><span class="obj-city">г. Минск</span><h4 class="obj-name">МТЗ</h4></div>
+                        </article>
+                        <article class="obj-card">
+                            <div class="obj-media"></div>
+                            <div class="obj-body"><span class="obj-city">г. Минск</span><h4 class="obj-name">МЗКТ</h4></div>
+                        </article>
+                    </div>
                 </div>
             </div>
         </section>
@@ -204,6 +317,56 @@
         </div>
     </footer>
 
+
+    <dialog class="obj-dialog" id="obj-dialog" aria-labelledby="obj-dialog-title">
+        <div class="obj-dialog-head">
+            <h3 id="obj-dialog-title"></h3>
+            <button type="button" class="obj-dialog-close" aria-label="Закрыть">×</button>
+        </div>
+        <div class="obj-dialog-body"></div>
+    </dialog>
+    <template id="obj-alkopak-2023">
+        <div class="obj-dlg-grid">
+            <div class="obj-dlg-photo"><img src="img/projects/alkopak.jpg" alt="Производственный корпус завода «АЛКОПАК»"></div>
+            <dl class="obj-dlg-info">
+                <dt>Заказчик</dt><dd>УП «АЛКОПАК»</dd>
+                <dt>Срок реализации</dt><dd>в течение 2023 года</dd>
+                <dt>Местоположение</dt><dd>г. Гомель, ул. Федюнинского, 21</dd>
+            </dl>
+        </div>
+        <h4 class="obj-dlg-h">Наименование объекта</h4>
+        <ol class="obj-dlg-list"><li>Реконструкция завода по производству металлополимерных изделий. Строительство цеха по производству стерильных медицинских изделий по улице Федюнинского, 21 в г. Гомеле</li><li>Текущий ремонт производственных корпусов завода по производству металлополимерных изделий</li></ol>
+        <h4 class="obj-dlg-h">Наименование строительно-монтажных работ</h4>
+        <ul class="obj-dlg-list"><li>комплекс общестроительных работ по текущему ремонту здания</li><li>комплекс работ по переустройству внутренних инженерных систем</li></ul>
+    </template>
+    <template id="obj-air-2023">
+        <div class="obj-dlg-grid">
+            <div class="obj-dlg-photo"><img src="img/projects/air-servis.jpg" alt="Административно-бытовой корпус «АИР-Сервис»"></div>
+            <dl class="obj-dlg-info">
+                <dt>Заказчик</dt><dd>УП «АИР-сервис»</dd>
+                <dt>Срок реализации</dt><dd>2023–2024 гг.</dd>
+                <dt>Местоположение</dt><dd>Минская область, Минский район, Луговослободской с/с, район аг. Луговая Слобода</dd>
+            </dl>
+        </div>
+        <h4 class="obj-dlg-h">Наименование объекта</h4>
+        <ol class="obj-dlg-list"><li>Реконструкция административного здания под АБК с навесом, расположенного по адресу: Минская область, Минский район, Луговослободской с/с, район аг. Луговая Слобода</li></ol>
+        <h4 class="obj-dlg-h">Наименование строительно-монтажных работ</h4>
+        <ul class="obj-dlg-list"><li>комплекс общестроительных работ по строительству объекта</li><li>комплекс строительно-монтажных работ по устройству инженерных сетей объекта</li></ul>
+    </template>
+    <template id="obj-multipak-2023">
+        <div class="obj-dlg-grid">
+            <div class="obj-dlg-photo"><img src="img/projects/multipak.jpg" alt="Логотип «Мультипак»"></div>
+            <dl class="obj-dlg-info">
+                <dt>Заказчик</dt><dd>УП «Мультипак»</dd>
+                <dt>Срок реализации</dt><dd>2023 г.</dd>
+                <dt>Местоположение</dt><dd>г. Гомель, ул. Федюнинского, 21</dd>
+            </dl>
+        </div>
+        <h4 class="obj-dlg-h">Наименование объекта</h4>
+        <ol class="obj-dlg-list"><li>Монтаж технологического оборудования для хранения материалов в существующем производственном корпусе, расположенного по адресу г. Гомель, ул. Федюнинского, 21</li></ol>
+        <h4 class="obj-dlg-h">Наименование строительно-монтажных работ</h4>
+        <ul class="obj-dlg-list"><li>комплекс строительно-монтажных работ по монтажу технологического оборудования</li></ul>
+    </template>
     <script src="config.js"></script>
     <script src="site.js" defer></script>
 </body>
