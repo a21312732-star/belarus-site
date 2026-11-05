@@ -135,6 +135,13 @@
       if (!det || !card) return;
       btn.addEventListener('click', function () {
         var open = !card.classList.contains('is-open');
+        // Пока раскрыт один проект, «Подробнее» у остальных недоступна
+        document.querySelectorAll('.obj-more').forEach(function (other) {
+          if (other === btn) return;
+          other.disabled = open;
+          if (open) other.title = 'Сначала сверните открытый проект';
+          else other.removeAttribute('title');
+        });
         card.classList.toggle('is-open', open);
         det.hidden = !open;
         btn.setAttribute('aria-expanded', String(open));

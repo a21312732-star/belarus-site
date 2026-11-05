@@ -620,3 +620,7 @@ body.dialog-open { overflow: hidden; }
     .obj-det-grid .obj-dlg-info > dd { margin-bottom: 14px; }
     .obj-card.is-open { aspect-ratio: auto; }
 }
+.obj-more:disabled { opacity: 0.35; cursor: not-allowed; }
+.obj-more:disabled:hover { background: transparent; color: #ffffff; border-color: rgba(255,255,255,0.6); }
+.about-hero-title { margin-bottom: 0; }
+.projects-lead { margin-bottom: 44px; }
