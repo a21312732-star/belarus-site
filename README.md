@@ -23,8 +23,8 @@ GitHub Pages отдаёт только готовые страницы и не �
 3. Settings → Variables and Secrets:
    - `BOT_TOKEN` — тип **Secret**, токен из шага 1;
    - `CHAT_ID` — id из шага 2;
-   - `ALLOWED_ORIGIN` — адрес сайта без слэша на конце, например `https://имя.github.io`
-     (если сайт на своём домене — он; можно несколько через запятую).
+   - `ALLOWED_ORIGIN` — адреса сайта без слэша на конце, через запятую:
+     `https://alterbeltech.com,https://www.alterbeltech.com,https://a21312732-star.github.io`
 
 ## 4. Подключите к сайту
 
