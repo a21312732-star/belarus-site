@@ -1,6 +1,11 @@
 # Фото проектов
 
-air-servis.jpg, alkopak.jpg, multipak.jpg — материалы заказчика (переданы владельцем сайта).
+air-servis.jpg, alkopak.jpg — материалы заказчика (переданы владельцем сайта).
+
+multipak-zavod.jpg, multipak-aerial.jpg — фото завода с официального сайта ООО «Мультипак»:
+https://multipack.by/assets/images/about/o-kompanii.jpg и
+https://multipack.by/assets/images/multipak-foto-zavoda-perekrashennoe.jpg.
+Права на эти фото принадлежат «Мультипаку» — использовать с их согласия.
 
 Остальные фото — иллюстрации по профилю заказчика, а не снимки реальных объектов «АльтерБелТех».
 Все найдены через Openverse (openverse.org) с лицензией CC0 или «общественное достояние» (PDM):
