@@ -25,44 +25,44 @@
 
     <a class="skip-link" href="#content">Перейти к содержимому</a>
 
-    <header class="header">
-        <a href="index.html" class="header-left header-logo-link">
+    <header class="header header-min">
+        <a href="index.html" class="header-logo-link">
             <img src="1001.jpg" alt="ООО «АльтерБелТех»" class="header-logo-img">
             <div class="header-logo-text-block">
                 <div class="logo logo-heavy">АльтерБелТех</div>
                 <span class="logo-subtext">Строительная компания</span>
             </div>
         </a>
-
-        <nav class="header-center-nav" id="site-nav" aria-label="Основное меню">
-            <a href="o-kompanii.html" class="btn-nav-item">О компании</a>
-            <div class="dropdown-menu-container">
-                <button type="button" class="btn-services-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Услуги ▾</button>
-                <div class="dropdown-content" id="services-menu">
-                    <a href="genpodryad.html">Генеральный подряд</a>
-                    <a href="obshchestroitelnye-raboty.html">Общестроительные работы</a>
-                    <a href="elektrosnabzhenie.html">Сети электроснабжения (внутр./наруж.)</a>
-                    <a href="ventilyaciya-vk.html">Вентиляция, ВК и НВК</a>
-                    <a href="montazh-oborudovaniya.html">Монтаж тех. оборудования</a>
-                </div>
-            </div>
-            <a href="autopark.html" class="btn-nav-item" aria-current="page">Техника</a>
-            <span class="btn-nav-item disabled" aria-disabled="true" title="Раздел скоро появится">Тендеры</span>
-            <span class="btn-nav-item disabled" aria-disabled="true" title="Раздел скоро появится">Новости</span>
-            <a href="contacts.html#contacts" class="btn-nav-item btn-nav-contacts">Контакты</a>
-        </nav>
-
-        <div class="header-right">
-            <div class="header-schedule">
-                <strong><a href="tel:+375445288999">+375 (44) 528-89-99</a></strong>
-                <span>Ежедневно с 08:00 до 21:00</span>
-            </div>
-            <a href="index.html#combined-zone" class="btn btn-primary">Связаться</a>
-            <button type="button" class="nav-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
+        <button type="button" class="menu-btn" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-menu">
+            <span></span><span></span><span></span>
+        </button>
     </header>
+
+    <nav class="site-menu" id="site-menu" aria-label="Меню сайта" hidden>
+        <div class="site-menu-inner">
+            <ul class="site-menu-list">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="o-kompanii.html">О компании</a></li>
+                <li class="site-menu-group">
+                    <span class="site-menu-group-title">Что мы делаем</span>
+                    <ul>
+                        <li><a href="genpodryad.html">Генеральный подряд</a></li>
+                        <li><a href="obshchestroitelnye-raboty.html">Общестроительные работы</a></li>
+                        <li><a href="elektrosnabzhenie.html">Сети электроснабжения</a></li>
+                        <li><a href="ventilyaciya-vk.html">Вентиляция, ВК и НВК</a></li>
+                        <li><a href="montazh-oborudovaniya.html">Монтаж тех. оборудования</a></li>
+                    </ul>
+                </li>
+                <li><a href="autopark.html" aria-current="page">Техника</a></li>
+                <li><a href="contacts.html#contacts">Контакты</a></li>
+            </ul>
+            <div class="site-menu-contacts">
+                <a href="tel:+375445288999" class="site-menu-phone">+375 (44) 528-89-99</a>
+                <span>Ежедневно с 08:00 до 21:00</span>
+                <a href="mailto:alterbeltech@gmail.com">alterbeltech@gmail.com</a>
+            </div>
+        </div>
+    </nav>
 
     <section class="hero-service-minimal">
         <div class="container-service">

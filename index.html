@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css">
     <noscript><style>.preloader{display:none !important}</style></noscript>
 </head>
-<body>
+<body class="page-home">
 
     <div class="preloader" id="preloader">
         <div class="preloader-content">
@@ -25,131 +25,61 @@
 
     <a class="skip-link" href="#content">Перейти к содержимому</a>
 
-    <header class="header">
-        <a href="index.html" class="header-left header-logo-link" aria-current="page">
+    <header class="header header-min">
+        <a href="index.html" class="header-logo-link" aria-current="page">
             <img src="1001.jpg" alt="ООО «АльтерБелТех»" class="header-logo-img">
             <div class="header-logo-text-block">
                 <div class="logo logo-heavy">АльтерБелТех</div>
                 <span class="logo-subtext">Строительная компания</span>
             </div>
         </a>
-
-        <nav class="header-center-nav" id="site-nav" aria-label="Основное меню">
-            <a href="o-kompanii.html" class="btn-nav-item">О компании</a>
-            <div class="dropdown-menu-container">
-                <button type="button" class="btn-services-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Услуги ▾</button>
-                <div class="dropdown-content" id="services-menu">
-                    <a href="genpodryad.html">Генеральный подряд</a>
-                    <a href="obshchestroitelnye-raboty.html">Общестроительные работы</a>
-                    <a href="elektrosnabzhenie.html">Сети электроснабжения (внутр./наруж.)</a>
-                    <a href="ventilyaciya-vk.html">Вентиляция, ВК и НВК</a>
-                    <a href="montazh-oborudovaniya.html">Монтаж тех. оборудования</a>
-                </div>
-            </div>
-            <a href="autopark.html" class="btn-nav-item">Техника</a>
-            <span class="btn-nav-item disabled" aria-disabled="true" title="Раздел скоро появится">Тендеры</span>
-            <span class="btn-nav-item disabled" aria-disabled="true" title="Раздел скоро появится">Новости</span>
-            <a href="contacts.html#contacts" class="btn-nav-item btn-nav-contacts">Контакты</a>
-        </nav>
-
-        <div class="header-right">
-            <div class="header-schedule">
-                <strong><a href="tel:+375445288999">+375 (44) 528-89-99</a></strong>
-                <span>Ежедневно с 08:00 до 21:00</span>
-            </div>
-            <a href="index.html#combined-zone" class="btn btn-primary">Связаться</a>
-            <button type="button" class="nav-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
+        <button type="button" class="menu-btn" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-menu">
+            <span></span><span></span><span></span>
+        </button>
     </header>
 
-    <main id="content">
+    <nav class="site-menu" id="site-menu" aria-label="Меню сайта" hidden>
+        <div class="site-menu-inner">
+            <ul class="site-menu-list">
+                <li><a href="index.html" aria-current="page">Главная</a></li>
+                <li><a href="o-kompanii.html">О компании</a></li>
+                <li class="site-menu-group">
+                    <span class="site-menu-group-title">Что мы делаем</span>
+                    <ul>
+                        <li><a href="genpodryad.html">Генеральный подряд</a></li>
+                        <li><a href="obshchestroitelnye-raboty.html">Общестроительные работы</a></li>
+                        <li><a href="elektrosnabzhenie.html">Сети электроснабжения</a></li>
+                        <li><a href="ventilyaciya-vk.html">Вентиляция, ВК и НВК</a></li>
+                        <li><a href="montazh-oborudovaniya.html">Монтаж тех. оборудования</a></li>
+                    </ul>
+                </li>
+                <li><a href="autopark.html">Техника</a></li>
+                <li><a href="contacts.html#contacts">Контакты</a></li>
+            </ul>
+            <div class="site-menu-contacts">
+                <a href="tel:+375445288999" class="site-menu-phone">+375 (44) 528-89-99</a>
+                <span>Ежедневно с 08:00 до 21:00</span>
+                <a href="mailto:alterbeltech@gmail.com">alterbeltech@gmail.com</a>
+            </div>
+        </div>
+    </nav>
 
-    <section class="hero">
-        <div class="hero-container">
+    <main id="content" class="hero3d">
+        <canvas id="scene" aria-label="Трёхмерная модель здания: административный и производственный корпуса, башенный кран"></canvas>
+        <div class="hero3d-text">
             <h1>Строительство и реконструкция зданий и сооружений под ключ</h1>
             <p class="hero-subtitle">Генеральный подряд, полный спектр общестроительных услуг, монтаж наружных и внутренних инженерных систем, комплекс пусконаладочных работ</p>
         </div>
-    </section>
-
-    <section class="stats-section">
-        <div class="container-lg" style="padding: 0;">
-            <div class="stats-grid-main">
-                <div class="stat-main-box">
-                    <span class="stat-title-top">Официальный статус и прозрачность</span>
-                </div>
-                <div class="stat-main-box">
-                    <span class="stat-title-top">Гибкость и индивидуальный подход</span>
-                </div>
-                <div class="stat-main-box">
-                    <span class="stat-title-top">Ответственность и соблюдение сроков</span>
-                </div>
-                <div class="stat-main-box">
-                    <span class="stat-title-top">Качество и надежность</span>
-                </div>
-            </div>
+        <div class="hero3d-hint" aria-live="polite">
+            <button type="button" class="hero3d-next" id="view-next" aria-label="Следующий ракурс">
+                <kbd>Пробел</kbd><span class="hero3d-tap">Нажмите</span>
+            </button>
+            <span class="hero3d-view"><span id="view-name">Общий вид</span> <span class="hero3d-num" id="view-num">1 / 5</span></span>
         </div>
-    </section>
-
-    <section id="combined-zone" class="business-combined-section">
-        <div class="combined-wrapper">
-            <div class="combined-faq-left">
-                <h2>Вопросы и ответы</h2>
-                <p class="combined-faq-sub">Технологические стандарты, регламенты и прозрачность работы компании</p>
-                
-                <div class="faq-compact-list">
-                    <div class="faq-compact-item">
-                        <div class="faq-compact-question">Выполняете ли вы проекты «под ключ»?</div>
-                        <div class="faq-compact-answer">Да, мы выполняем полный комплекс работ силами одной организации. Это включает в себя проектирование, прокладку инженерных сетей (электрика, ВК, вентиляция), монтаж сложного оборудования и официальную сдачу объекта технадзору.</div>
-                    </div>
-                    <div class="faq-compact-item">
-                        <div class="faq-compact-question">Как обеспечивается контроль качества инженерных сетей?</div>
-                        <div class="faq-compact-answer">Контроль ведется в соответствии с регламентами СНиП, ГОСТ и ТКП. Каждая система проходит обязательные индивидуальные испытания (проливы, замеры сопротивления, аэродинамические тесты) с составлением официальных актов скрытых работ.</div>
-                    </div>
-                    <div class="faq-compact-item">
-                        <div class="faq-compact-question">Есть ли у компании аттестаты соответствия на данные работы?</div>
-                        <div class="faq-compact-answer">Да, ООО «АльтерБелТех» осуществляет деятельность на основании официальных аттестатов соответствия Республики Беларусь на функции генерального подрядчика, выполнение общестроительных работ и устройство инженерных сетей.</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="combined-contacts-right">
-                <div class="business-text-block">
-                    <h3>Контакты компании:</h3>
-                    <p><strong>Телефон:</strong> <a href="tel:+375445288999">+375 (44) 528-89-99</a></p>
-                    <p><strong>Email:</strong> <a href="mailto:alterbeltech@gmail.com">alterbeltech@gmail.com</a></p>
-                    <p><strong>Офис в Минске:</strong> 220075, г. Минск, проспект Партизанский, 178, оф. 701</p>
-                </div>
-                
-                <div class="business-form-block">
-                    <h4>Отправить проект на расчет стоимости</h4>
-                    <form class="lead-form" data-form="form-index" action="#" method="post">
-                        <label class="visually-hidden" for="form-index-name">Ваше имя</label>
-                        <input id="form-index-name" name="name" type="text" placeholder="Ваше имя" autocomplete="name" maxlength="100" required class="form-input">
-                        <label class="visually-hidden" for="form-index-phone">Номер телефона</label>
-                        <input id="form-index-phone" name="phone" type="tel" placeholder="Номер телефона" autocomplete="tel" inputmode="tel" maxlength="30" pattern="[0-9+\(\)\-\s]{7,30}" title="Номер телефона, например +375 44 123 45 67" required class="form-input">
-                        <label class="visually-hidden" for="form-index-message">Сообщение</label>
-                        <textarea id="form-index-message" name="message" placeholder="Опишите задачу, инженерные сети или требуемые параметры объекта" maxlength="1500" class="form-input form-textarea"></textarea>
-                        <div class="hp" aria-hidden="true"><label>Не заполняйте это поле<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-                        <button type="submit" class="btn btn-submit">Связаться с инженером</button>
-                        <p class="form-status" role="status" aria-live="polite" hidden></p>
-                    </form>
-                    <span class="form-privacy">Отправляя форму, вы соглашаетесь на обработку персональных данных в соответствии с <a href="privacy.html">политикой конфиденциальности</a>.</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
     </main>
 
-    <footer class="footer footer-compact">
-        <div class="footer-bottom">
-            <p>© 2026 ООО «АльтерБелТех». Все права защищены.</p>
-            <a href="privacy.html" class="footer-link">Политика конфиденциальности</a>
-        </div>
-    </footer>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="hero3d.js" defer></script>
     <script src="config.js"></script>
     <script src="site.js" defer></script>
 </body>
