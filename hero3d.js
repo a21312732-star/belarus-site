@@ -36,95 +36,145 @@
 
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   var scene = new THREE.Scene();
-  var camera = new THREE.PerspectiveCamera(40, 1, 0.1, 1000);
+  var camera = new THREE.PerspectiveCamera(40, 1, 0.1, 2000);
 
-  /* ---------- Чертёж: набор отрезков ---------- */
-  var segs = [];
-  function L(a, b) { segs.push([a[0], a[1], a[2], b[0], b[1], b[2]]); }
-  function rect(p1, p2, p3, p4) { L(p1, p2); L(p2, p3); L(p3, p4); L(p4, p1); }
-  function box(x0, y0, z0, x1, y1, z1) {
+  /* ---------- Сцена: строящийся квартал, как карандашный набросок ---------- */
+  var segs = [], soft = [];   // soft — деревья, трава, облака: рисуются легче
+  var seedG = 11;
+  function R() { seedG = (seedG * 16807) % 2147483647; return (seedG - 1) / 2147483646; }
+  function L(a, b, arr) { (arr || segs).push([a[0], a[1], a[2], b[0], b[1], b[2]]); }
+  function rect(p1, p2, p3, p4, arr) { L(p1, p2, arr); L(p2, p3, arr); L(p3, p4, arr); L(p4, p1, arr); }
+  function box(x0, y0, z0, x1, y1, z1, arr) {
     var c = [[x0,y0,z0],[x1,y0,z0],[x1,y0,z1],[x0,y0,z1],[x0,y1,z0],[x1,y1,z0],[x1,y1,z1],[x0,y1,z1]];
-    rect(c[0], c[1], c[2], c[3]); rect(c[4], c[5], c[6], c[7]);
-    L(c[0], c[4]); L(c[1], c[5]); L(c[2], c[6]); L(c[3], c[7]);
+    rect(c[0], c[1], c[2], c[3], arr); rect(c[4], c[5], c[6], c[7], arr);
+    L(c[0], c[4], arr); L(c[1], c[5], arr); L(c[2], c[6], arr); L(c[3], c[7], arr);
   }
-  function winZ(cx, y, zf, w, h) {
-    rect([cx - w/2, y, zf], [cx + w/2, y, zf], [cx + w/2, y + h, zf], [cx - w/2, y + h, zf]);
-    L([cx, y, zf], [cx, y + h, zf]);
-  }
-  function winX(cz, y, xf, w, h) {
-    rect([xf, y, cz - w/2], [xf, y, cz + w/2], [xf, y + h, cz + w/2], [xf, y + h, cz - w/2]);
-    L([xf, y, cz], [xf, y + h, cz]);
+  function poly(pts, closed, arr) {
+    for (var i = 0; i < pts.length - 1; i++) L(pts[i], pts[i + 1], arr);
+    if (closed) L(pts[pts.length - 1], pts[0], arr);
   }
 
-  // 1. Административный корпус: 24 × 12 м, 6 этажей
-  var AX0 = -12, AX1 = 12, AZ0 = -6, AZ1 = 6, FL = 3, NF = 6, AH = FL * NF;
-  box(AX0, 0, AZ0, AX1, AH, AZ1);
-  for (var f = 1; f < NF; f++) {
-    var y = f * FL;
-    rect([AX0, y, AZ0], [AX1, y, AZ0], [AX1, y, AZ1], [AX0, y, AZ1]);
-  }
-  for (f = 0; f < NF; f++) {
-    var wy = f * FL + 0.9;
-    for (var x = AX0 + 1.5; x < AX1; x += 2.25) {
-      if (f === 0 && Math.abs(x) < 3) continue;
-      winZ(x, wy, AZ1, 1.3, 1.6);
-      winZ(x, wy, AZ0, 1.3, 1.6);
+  // Жилой дом: этажи, окна, полосы балконов, надстройка на кровле
+  function house(cx, cz, w, d, floors, opts) {
+    opts = opts || {};
+    var FH = 3, H = floors * FH, x0 = cx - w / 2, x1 = cx + w / 2, z0 = cz - d / 2, z1 = cz + d / 2;
+    var built = opts.building ? floors - 3 : floors;   // у строящегося верх — только каркас
+    box(x0, 0, z0, x1, built * FH, z1);
+    for (var f = 1; f < built; f++) {
+      var y = f * FH;
+      if (opts.balcony && f % 1 === 0) { L([x0, y, z1 + 0.6], [x1, y, z1 + 0.6]); L([x0, y + 0.9, z1 + 0.6], [x1, y + 0.9, z1 + 0.6]); }
+      else L([x0, y, z1], [x1, y, z1]);
+      L([x0, y, z0], [x0, y, z1]);
     }
-    for (var z = AZ0 + 1.5; z < AZ1; z += 2.25) winX(z, wy, AX0, 1.3, 1.6);
+    for (f = 0; f < built; f++) {
+      var wy = f * FH + 0.8;
+      for (var x = x0 + 1.6; x < x1 - 0.6; x += 2.6) {
+        rect([x - 0.65, wy, z1], [x + 0.65, wy, z1], [x + 0.65, wy + 1.5, z1], [x - 0.65, wy + 1.5, z1]);
+        if (R() < 0.5) L([x, wy, z1], [x, wy + 1.5, z1]);
+      }
+      for (var z = z0 + 1.6; z < z1 - 0.6; z += 2.6) {
+        rect([x0, wy, z - 0.65], [x0, wy, z + 0.65], [x0, wy + 1.5, z + 0.65], [x0, wy + 1.5, z - 0.65]);
+      }
+    }
+    if (opts.building) {          // каркас: колонны и плиты перекрытий
+      for (f = built; f <= floors; f++) rect([x0, f * FH, z0], [x1, f * FH, z0], [x1, f * FH, z1], [x0, f * FH, z1]);
+      for (x = x0; x <= x1 + 0.01; x += w / 4) { L([x, built * FH, z1], [x, H, z1]); L([x, built * FH, z0], [x, H, z0]); }
+      for (z = z0; z <= z1 + 0.01; z += d / 2) { L([x0, built * FH, z], [x0, H, z]); L([x1, built * FH, z], [x1, H, z]); }
+    } else {
+      box(x0, H, z0, x1, H + 0.6, z1);                         // парапет
+      if (R() < 0.7) box(cx - 2, H, cz - 1.5, cx + 1.5, H + 2.4, cz + 1.5); // выход на кровлю
+    }
   }
-  rect([-2.4, 0, AZ1], [2.4, 0, AZ1], [2.4, 2.8, AZ1], [-2.4, 2.8, AZ1]);
-  L([0, 0, AZ1], [0, 2.8, AZ1]); L([-1.2, 0, AZ1], [-1.2, 2.8, AZ1]); L([1.2, 0, AZ1], [1.2, 2.8, AZ1]);
-  L([-2.4, 1.4, AZ1], [2.4, 1.4, AZ1]);
-  box(-3.5, 3.2, AZ1, 3.5, 3.6, AZ1 + 3);
-  L([-3.2, 0, AZ1 + 2.7], [-3.2, 3.2, AZ1 + 2.7]); L([3.2, 0, AZ1 + 2.7], [3.2, 3.2, AZ1 + 2.7]);
-  for (var s = 0; s < 3; s++) L([-3, 0.15 * (s + 1), AZ1 + 3.6 - s * 0.35], [3, 0.15 * (s + 1), AZ1 + 3.6 - s * 0.35]);
-  box(AX0, AH, AZ0, AX1, AH + 0.8, AZ1);
-  box(-8, AH, -3, -3.5, AH + 3.2, 1);
-  box(5, AH, -2, 8, AH + 1.5, 1.5);
 
-  // 2. Производственный корпус: сэндвич-панели, двускатная кровля
-  var PX0 = 12, PX1 = 34, PZ0 = -8, PZ1 = 8, PH = 10, RH = 12.5;
-  box(PX0, 0, PZ0, PX1, PH, PZ1);
-  L([PX0, RH, 0], [PX1, RH, 0]);
-  L([PX0, PH, PZ0], [PX0, RH, 0]); L([PX0, PH, PZ1], [PX0, RH, 0]);
-  L([PX1, PH, PZ0], [PX1, RH, 0]); L([PX1, PH, PZ1], [PX1, RH, 0]);
-  for (x = PX0 + 1.5; x < PX1; x += 1.5) { L([x, 0, PZ1], [x, PH, PZ1]); L([x, 0, PZ0], [x, PH, PZ0]); }
-  L([PX0, PH / 2, PZ1], [PX1, PH / 2, PZ1]); L([PX0, PH / 2, PZ0], [PX1, PH / 2, PZ0]);
-  for (z = PZ0 + 2; z < PZ1; z += 2) L([PX1, 0, z], [PX1, PH + (RH - PH) * (1 - Math.abs(z) / 8), z]);
-  for (var g = 0; g < 3; g++) {
-    var gx = PX0 + 5 + g * 6;
-    rect([gx - 1.6, 0, PZ1], [gx + 1.6, 0, PZ1], [gx + 1.6, 3.8, PZ1], [gx - 1.6, 3.8, PZ1]);
-    for (var gl = 0.95; gl < 3.8; gl += 0.95) L([gx - 1.6, gl, PZ1], [gx + 1.6, gl, PZ1]);
-    box(gx - 2, 4.1, PZ1, gx + 2, 4.3, PZ1 + 1.2);
+  // Башенный кран со стрелой, повёрнутой на угол ang
+  function crane(cx, cz, h, jib, ang) {
+    var M = 0.9, dx = Math.cos(ang), dz = Math.sin(ang);
+    for (var y = 0; y < h; y += 2.4) {
+      rect([cx - M, y, cz - M], [cx + M, y, cz - M], [cx + M, y, cz + M], [cx - M, y, cz + M]);
+      L([cx - M, y, cz - M], [cx + M, y + 2.4, cz - M]); L([cx + M, y, cz + M], [cx - M, y + 2.4, cz + M]);
+      L([cx - M, y, cz + M], [cx - M, y + 2.4, cz - M]); L([cx + M, y, cz - M], [cx + M, y + 2.4, cz + M]);
+    }
+    L([cx - M, 0, cz - M], [cx - M, h, cz - M]); L([cx + M, 0, cz - M], [cx + M, h, cz - M]);
+    L([cx + M, 0, cz + M], [cx + M, h, cz + M]); L([cx - M, 0, cz + M], [cx - M, h, cz + M]);
+    box(cx - 1.3, h, cz - 1.3, cx + 1.3, h + 2.2, cz + 1.3);
+    var jy = h + 2.2, back = jib * 0.3;
+    function P(t, yy) { return [cx + dx * t, yy, cz + dz * t]; }
+    L(P(-back, jy), P(jib, jy)); L(P(-back, jy + 1), P(jib, jy + 1));
+    for (var t = -back; t < jib; t += 2.2) L(P(t, jy), P(t + 2.2, jy + 1));
+    L(P(0, jy + 2.2), P(0, jy + 7)); L(P(0, jy + 7), P(jib * 0.75, jy + 1)); L(P(0, jy + 7), P(-back, jy + 1));
+    var cw = P(-back, jy); box(cw[0] - 1.6, jy - 2.2, cw[2] - 1.6, cw[0] + 1.6, jy, cw[2] + 1.6);
+    var hk = P(jib * 0.6, jy); L(hk, [hk[0], jy - 14, hk[2]]);
+    box(hk[0] - 0.6, jy - 15.5, hk[2] - 0.6, hk[0] + 0.6, jy - 14, hk[2] + 0.6);
+    L([hk[0], jy - 15.5, hk[2]], [hk[0], jy - 18, hk[2]]);
   }
-  rect([PX0 + 1, 7.2, PZ1], [PX1 - 1, 7.2, PZ1], [PX1 - 1, 8.4, PZ1], [PX0 + 1, 8.4, PZ1]);
 
-  // 3. Башенный кран
-  var CX = -22, CZ = -16, CH = 32, M = 0.8;
-  for (var cy = 0; cy < CH; cy += 2) {
-    rect([CX - M, cy, CZ - M], [CX + M, cy, CZ - M], [CX + M, cy, CZ + M], [CX - M, cy, CZ + M]);
-    L([CX - M, cy, CZ - M], [CX + M, cy + 2, CZ - M]);
-    L([CX + M, cy, CZ + M], [CX - M, cy + 2, CZ + M]);
-    L([CX - M, cy, CZ + M], [CX - M, cy + 2, CZ - M]);
-    L([CX + M, cy, CZ - M], [CX + M, cy + 2, CZ + M]);
+  // Дерево/куст: ствол и несколько «каракулей» кроны
+  function tree(x, z, h) {
+    L([x, 0, z], [x + (R() - 0.5) * 0.4, h * 0.45, z], soft);
+    var rings = 3 + Math.floor(R() * 3);
+    for (var r = 0; r < rings; r++) {
+      var cy = h * (0.45 + 0.5 * R()), rad = h * (0.22 + 0.18 * R());
+      var ox = (R() - 0.5) * rad, oz = (R() - 0.5) * rad, pts = [], n = 9, a0 = R() * 6.28;
+      for (var k = 0; k < n; k++) {
+        var a = a0 + k / n * 6.283, rr = rad * (0.75 + 0.45 * R());
+        pts.push([x + ox + Math.cos(a) * rr, cy + Math.sin(a) * rr * 0.75, z + oz + Math.sin(a * 1.3) * rr * 0.4]);
+      }
+      poly(pts, true, soft);
+    }
   }
-  L([CX - M, 0, CZ - M], [CX - M, CH, CZ - M]); L([CX + M, 0, CZ - M], [CX + M, CH, CZ - M]);
-  L([CX + M, 0, CZ + M], [CX + M, CH, CZ + M]); L([CX - M, 0, CZ + M], [CX - M, CH, CZ + M]);
-  box(CX - 1.2, CH, CZ - 1.2, CX + 1.2, CH + 2, CZ + 1.2);
-  var JL = 34, CJ = 10, JY = CH + 2;
-  L([CX - CJ, JY, CZ], [CX + JL, JY, CZ]);
-  L([CX - CJ, JY + 0.8, CZ], [CX + JL, JY + 0.8, CZ]);
-  for (var jx = -CJ; jx < JL; jx += 2) L([CX + jx, JY, CZ], [CX + jx + 2, JY + 0.8, CZ]);
-  L([CX, JY + 2, CZ], [CX, JY + 6, CZ]);
-  L([CX, JY + 6, CZ], [CX + JL * 0.7, JY + 0.8, CZ]); L([CX, JY + 6, CZ], [CX - CJ, JY + 0.8, CZ]);
-  box(CX - CJ, JY - 1.8, CZ - 0.8, CX - CJ + 3, JY, CZ + 0.8);
-  L([CX + 22, JY, CZ], [CX + 22, 22, CZ]);
-  box(CX + 21.5, 20.8, CZ - 0.5, CX + 22.5, 22, CZ + 0.5);
+  // Техника: самосвал / погрузчик из простых коробок с колёсами
+  function truck(x, z, len) {
+    box(x, 0.8, z, x + len * 0.3, 3, z + 2.4);
+    box(x + len * 0.32, 0.8, z, x + len, 2.4, z + 2.4);
+    [x + 0.9, x + len * 0.6, x + len - 0.9].forEach(function (wx) {
+      var pts = [];
+      for (var k = 0; k < 8; k++) { var a = k / 8 * 6.283; pts.push([wx + Math.cos(a) * 0.7, 0.75 + Math.sin(a) * 0.7, z + 2.45]); }
+      poly(pts, true);
+    });
+  }
 
-  // Разбивочные оси на земле (как на листе с чертежом)
-  var axes = [];
-  for (var ax = -40; ax <= 50; ax += 6) axes.push([ax, 0, -36, ax, 0, 30]);
-  for (var az = -36; az <= 30; az += 6) axes.push([-40, 0, az, 50, 0, az]);
+  // Квартал: дальний ряд, средний ряд, строящийся дом
+  house(-62, -52, 16, 12, 13, { balcony: true });
+  house(-40, -64, 14, 12, 17);
+  house(-20, -50, 12, 12, 10, { balcony: true });
+  house(2, -70, 18, 14, 19);
+  house(24, -54, 12, 12, 12);
+  house(44, -66, 16, 12, 16, { balcony: true });
+  house(66, -50, 14, 12, 11);
+  house(-48, -24, 12, 10, 7);
+  house(52, -22, 12, 10, 8, { balcony: true });
+  house(8, -32, 16, 12, 11, { building: true });
+  crane(-26, -30, 48, 38, -0.15);
+  crane(30, -36, 44, 34, 3.6);
+  // площадка: техника, бытовки, штабели
+  truck(-14, -6, 9); truck(14, -2, 8);
+  box(-34, 0, -8, -26, 2.6, -5); box(-24, 0, -8, -16, 2.6, -5);
+  box(24, 0, -10, 32, 0.6, -7); box(25, 0.6, -9.6, 31, 1.2, -7.4);
+  // деревья и кусты на переднем плане
+  for (var t = 0; t < 46; t++) {
+    var tx = -90 + R() * 180, tz = -4 + R() * 34;
+    if (Math.abs(tx) < 22 && tz < 8) continue;
+    tree(tx, tz, 3 + R() * 6);
+  }
+  // трава штрихами
+  for (var gI = 0; gI < 420; gI++) {
+    var gx = -95 + R() * 190, gz = 4 + R() * 40, gh = 0.4 + R() * 1.1, lean = (R() - 0.5) * 0.6;
+    L([gx, 0, gz], [gx + lean, gh, gz], soft);
+  }
+  // дорога-подъезд к площадке
+  poly([[-6, 0, 50], [-5, 0, 20], [-8, 0, 0], [-12, 0, -14]], false, soft);
+  poly([[6, 0, 50], [7, 0, 20], [4, 0, 0], [2, 0, -14]], false, soft);
+  // облака: волнистые контуры далеко за кварталом
+  [[-60, 92, -140, 16], [-5, 104, -150, 12], [55, 96, -145, 18], [95, 86, -135, 10]].forEach(function (c) {
+    var pts = [], n = 22;
+    for (var k = 0; k <= n; k++) {
+      var a = Math.PI * k / n, bump = 1 + 0.18 * Math.sin(k * 2.1);
+      pts.push([c[0] - c[3] + 2 * c[3] * k / n, c[1] + Math.sin(a) * c[3] * 0.35 * bump, c[2]]);
+    }
+    poly(pts, false, soft); L([c[0] - c[3] - 2, c[1], c[2]], [c[0] + c[3] + 3, c[1], c[2]], soft);
+  });
+
+  var axes = soft;
 
   /* ---------- «Карандаш»: каждый отрезок рисуется неровными штрихами ---------- */
   var seed = 7;
@@ -160,18 +210,19 @@
     scene.add(ll);
     return { geo: gg, mat: mm, count: arr.length / 3 };
   }
-  var main = mkLines(sketch(segs, 1, 0.09, 0.35), 0x2b2724, 0.85);   // основной нажим
-  var soft = mkLines(sketch(segs, 1, 0.18, 0.6), 0x4a4540, 0.35);   // второй, лёгкий проход
-  var guide = mkLines(sketch(axes, 1, 0.05, 1.2), 0x9a9188, 0.28);  // оси на «бумаге»
+  // рисунок намеренно светлый: акцент на тексте
+  mkLines(sketch(segs, 1, 0.12, 0.45), 0x3a3530, 0.55);   // основной нажим
+  mkLines(sketch(segs, 1, 0.25, 0.8), 0x5a534c, 0.22);    // второй, лёгкий проход
+  mkLines(sketch(axes, 1, 0.08, 0.15), 0x5a534c, 0.45);   // деревья, трава, облака
 
 
   /* ---------- Ракурсы по прокрутке ---------- */
   var views = [
-    { pos: [62, 36, 68], target: [2, 12, 0] },     // общий вид
-    { pos: [7, 4.2, 24], target: [0, 4.5, 6] },     // главный вход
-    { pos: [50, 7, 30], target: [23, 6, 2] },       // производственный корпус
-    { pos: [-40, 22, 22], target: [-14, 32, -16] }, // башенный кран
-    { pos: [6, 92, 2], target: [6, 0, 0] }          // вид сверху
+    { pos: [0, 30, 110], target: [0, 26, -40] },     // панорама квартала
+    { pos: [-30, 6, 40], target: [-12, 16, -30] },   // с земли, среди деревьев
+    { pos: [34, 20, 12], target: [8, 26, -32] },     // строящийся дом
+    { pos: [-70, 58, 6], target: [-26, 50, -30] },   // кран
+    { pos: [14, 150, 70], target: [0, 0, -36] }      // с высоты
   ].map(function (v) { return { pos: new THREE.Vector3().fromArray(v.pos), target: new THREE.Vector3().fromArray(v.target) }; });
 
   function ease(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
@@ -189,6 +240,8 @@
     var u = smooth(p);
     posCurve.getPoint(u, wantPos);
     tgtCurve.getPoint(u, wantTgt);
+    var works = document.querySelector('.works');
+    if (works) document.body.classList.toggle('works-on', works.getBoundingClientRect().top < window.innerHeight * 0.7);
     var c = Math.round(p * (views.length - 1));
     if (c !== lastCap) { showCaption(c); lastCap = c; }
   }
@@ -203,7 +256,7 @@
     var a = w / h;
     camera.aspect = a;
     camera.fov = a < 0.8 ? 62 : 40;
-    if (a >= 1.1) camera.setViewOffset(w, h, -w * 0.2, 0, w, h);
+    if (a >= 1.1) camera.setViewOffset(w, h, -w * 0.14, 0, w, h);
     else if (a < 0.8) camera.setViewOffset(w, h, 0, -h * 0.16, w, h);
     else camera.clearViewOffset();
     camera.updateProjectionMatrix();
