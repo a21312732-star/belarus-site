@@ -785,7 +785,7 @@ body.menu-open .header { z-index: 300; background: transparent; border-bottom-co
 }
 
 /* Карандашный рисунок квартала (тёмная тема) */
-.home-drawing .home-bg { inset: -2% 0 0 0; background: url('img/drawing-city.webp') center bottom / cover no-repeat; opacity: .9; animation: none !important; clip-path: none; transition: transform .2s linear, opacity 1s ease; }
+.home-drawing .home-bg { inset: -2% 0 0 0; background: url('img/crane-house.svg') center bottom / cover no-repeat; opacity: .9; animation: none !important; clip-path: none; transition: transform .2s linear, opacity 1s ease; }
 .home-drawing::before { display: none; }
 .home-drawing::after { background: linear-gradient(90deg, rgba(14,12,10,.88) 0%, rgba(14,12,10,.55) 40%, rgba(14,12,10,.1) 75%),
                                    linear-gradient(0deg, rgba(14,12,10,.5) 0%, rgba(14,12,10,0) 30%); }
@@ -798,9 +798,9 @@ body.menu-open .header { z-index: 300; background: transparent; border-bottom-co
 
 /* Остальные страницы: рисунок в шапках разделов и едва заметно на фоне */
 body:not(.page-home)::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
-  background: url('img/drawing-city.webp') center bottom / cover no-repeat; opacity: .07; }
-.hero-service-minimal { background: linear-gradient(90deg, rgba(28,23,19,.95) 0%, rgba(28,23,19,.75) 55%, rgba(28,23,19,.55) 100%), url('img/drawing-city.webp') center bottom / cover no-repeat, #1c1713; }
-.about-hero { background: linear-gradient(90deg, rgba(14,12,10,.94) 0%, rgba(14,12,10,.7) 55%, rgba(14,12,10,.45) 100%), url('img/drawing-city.webp') center bottom / cover no-repeat, #0e0c0a; }
+  background: url('img/crane-house.svg') center bottom / cover no-repeat; opacity: .07; }
+.hero-service-minimal { background: linear-gradient(90deg, rgba(28,23,19,.95) 0%, rgba(28,23,19,.75) 55%, rgba(28,23,19,.55) 100%), url('img/crane-house.svg') center bottom / cover no-repeat, #1c1713; }
+.about-hero { background: linear-gradient(90deg, rgba(14,12,10,.94) 0%, rgba(14,12,10,.7) 55%, rgba(14,12,10,.45) 100%), url('img/crane-house.svg') center bottom / cover no-repeat, #0e0c0a; }
 .home-drawing::after { background: linear-gradient(90deg, rgba(14,12,10,.85) 0%, rgba(14,12,10,.5) 40%, rgba(14,12,10,.05) 75%),
                                    linear-gradient(0deg, rgba(14,12,10,.85) 0%, rgba(14,12,10,0) 22%); }
 /* рисунок — вся панорама по ширине, прижата к низу */
@@ -813,6 +813,26 @@ body:not(.page-home)::before { background-size: 100% auto; }
   .home-drawing::after { background: linear-gradient(180deg, rgba(14,12,10,.2) 0%, rgba(14,12,10,0) 55%, rgba(14,12,10,.35) 100%); }
   .home-hero { align-items: flex-start; padding-top: 110px; }
 }
-.hero-service-minimal { background-image: linear-gradient(90deg, rgba(28,23,19,.96) 0%, rgba(28,23,19,.85) 55%, rgba(28,23,19,.72) 100%), url('img/drawing-city.webp'), none; }
-.about-hero { background-image: linear-gradient(90deg, rgba(14,12,10,.95) 0%, rgba(14,12,10,.8) 55%, rgba(14,12,10,.62) 100%), url('img/drawing-city.webp'), none; }
+.hero-service-minimal { background-image: linear-gradient(90deg, rgba(28,23,19,.96) 0%, rgba(28,23,19,.85) 55%, rgba(28,23,19,.72) 100%), url('img/crane-house.svg'), none; }
+.about-hero { background-image: linear-gradient(90deg, rgba(14,12,10,.95) 0%, rgba(14,12,10,.8) 55%, rgba(14,12,10,.62) 100%), url('img/crane-house.svg'), none; }
 body:not(.page-home)::before { opacity: .05; }
+
+/* Главная: фото на первом экране, дальше — кран и край дома линиями */
+.home-hero { position: relative; }
+.hero-photo { position: absolute; top: 0; right: 0; bottom: 0; width: min(46vw, 1000px); margin: 0; z-index: 0; overflow: hidden; }
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; display: block; }
+.hero-photo::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(90deg, #0e0c0a 0%, rgba(14,12,10,.55) 22%, rgba(14,12,10,0) 50%), linear-gradient(0deg, rgba(14,12,10,.6) 0%, rgba(14,12,10,0) 25%); }
+.home-hero .home-text { position: relative; z-index: 1; }
+.home-drawing { opacity: 0; transition: opacity 1s ease; }
+.bg-dim .home-drawing { opacity: 1; }
+.home-drawing .home-bg { background-size: auto 88vh; background-position: right bottom; inset: 0; opacity: .55 !important; transform: none !important; }
+.home-drawing::after, .bg-dim .home-drawing::after { background: linear-gradient(90deg, rgba(14,12,10,.92) 0%, rgba(14,12,10,.6) 45%, rgba(14,12,10,0) 80%); }
+body:not(.page-home)::before { background-size: auto 80vh; background-position: right bottom; opacity: .12; }
+.hero-service-minimal, .about-hero { background-size: auto, auto 140%, auto; background-position: 0 0, right 4% top 20%, 0 0; }
+@media (max-width: 768px) {
+  .hero-photo { position: relative; width: auto; height: 52vh; margin: -100px -20px 24px; }
+  .hero-photo::after { background: linear-gradient(0deg, #0e0c0a 0%, rgba(14,12,10,0) 45%); }
+  .home-hero { flex-direction: column; align-items: stretch; padding-top: 100px; }
+  .home-drawing .home-bg { background-size: auto 60vh; }
+}
