@@ -783,3 +783,21 @@ body.menu-open .header { z-index: 300; background: transparent; border-bottom-co
 @media (prefers-reduced-motion: reduce) {
   .home-bg.is-active, .home-bg.is-prev, .home-bgs.is-wiping::before { animation: none !important; }
 }
+
+/* Карандашный рисунок квартала (тёмная тема) */
+.home-drawing .home-bg { inset: -2% 0 0 0; background: url('img/drawing-city.webp') center bottom / cover no-repeat; opacity: .9; animation: none !important; clip-path: none; transition: transform .2s linear, opacity 1s ease; }
+.home-drawing::before { display: none; }
+.home-drawing::after { background: linear-gradient(90deg, rgba(14,12,10,.88) 0%, rgba(14,12,10,.55) 40%, rgba(14,12,10,.1) 75%),
+                                   linear-gradient(0deg, rgba(14,12,10,.5) 0%, rgba(14,12,10,0) 30%); }
+.bg-dim .home-drawing .home-bg { opacity: .55; }
+.bg-dim .home-drawing::after { background: rgba(14,12,10,.55); }
+@media (max-width: 768px) {
+  .home-drawing .home-bg { background-position: 40% bottom; }
+  .home-drawing::after { background: linear-gradient(180deg, rgba(14,12,10,.7) 0%, rgba(14,12,10,.55) 55%, rgba(14,12,10,.3) 100%); }
+}
+
+/* Остальные страницы: рисунок в шапках разделов и едва заметно на фоне */
+body:not(.page-home)::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: url('img/drawing-city.webp') center bottom / cover no-repeat; opacity: .07; }
+.hero-service-minimal { background: linear-gradient(90deg, rgba(28,23,19,.95) 0%, rgba(28,23,19,.75) 55%, rgba(28,23,19,.55) 100%), url('img/drawing-city.webp') center 70% / cover no-repeat, #1c1713; }
+.about-hero { background: linear-gradient(90deg, rgba(14,12,10,.94) 0%, rgba(14,12,10,.7) 55%, rgba(14,12,10,.45) 100%), url('img/drawing-city.webp') center 70% / cover no-repeat, #0e0c0a; }
