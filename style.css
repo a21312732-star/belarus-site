@@ -631,3 +631,15 @@ body.dialog-open { overflow: hidden; }
 .obj-det-grid .obj-dlg-info { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); }
 .obj-dlg-plain { list-style: none; margin-left: 0; }
 @media (max-width: 768px) { .obj-det-grid .obj-dlg-info { grid-auto-flow: row; grid-template-columns: 1fr; } }
+
+/* «О компании»: направления и отличительные черты */
+.about-more { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-top: 36px; }
+.about-more-lead { font-size: 17px; font-weight: 700; color: #ffffff; line-height: 1.6; margin-bottom: 14px; }
+.about-more-list { list-style: none; }
+.about-more-list li { position: relative; padding: 12px 0 12px 30px; border-bottom: 1px solid #332a23; font-size: 16px; line-height: 1.65; color: #e3dbd0; }
+.about-more-list li:first-child { border-top: 1px solid #332a23; }
+.about-more-list li::before { content: ""; position: absolute; left: 4px; top: 21px; width: 12px; height: 6px; border-left: 2px solid #ffffff; border-bottom: 2px solid #ffffff; transform: rotate(-45deg); }
+.about-more-closing { margin-top: 36px; font-size: 18px; font-style: italic; line-height: 1.7; color: #ffffff; border-left: 3px solid #ffffff; padding-left: 22px; }
+@media (min-width: 1700px) { .about-more-list li { font-size: 17px; } }
+@media (max-width: 992px) { .about-more { grid-template-columns: 1fr; gap: 32px; } }
+@media (max-width: 576px) { .about-more-list li { font-size: 15px; } .about-more-closing { font-size: 16px; } }
