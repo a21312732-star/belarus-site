@@ -698,7 +698,7 @@ body.menu-open .header { z-index: 300; background: transparent; border-bottom-co
 .page-home.menu-open .menu-btn span { background: #ffffff; }
 .page-home :focus-visible { outline-color: #221e1b; }
 
-.hero3d { position: relative; height: 520vh; background: #efe9de; }
+.hero3d { position: relative; height: 760vh; background: #efe9de; }
 .hero3d-stage { position: sticky; top: 0; height: 100vh; height: 100dvh; overflow: hidden;
   background:
     radial-gradient(ellipse at 50% 45%, rgba(255,253,248,.85) 0%, rgba(239,233,222,0) 65%),
@@ -710,7 +710,7 @@ body.menu-open .header { z-index: 300; background: transparent; border-bottom-co
 .hero3d.no-3d .hero3d-stage { background: linear-gradient(rgba(239,233,222,.86), rgba(239,233,222,.86)), url('bg-hd.jpg') center / cover; }
 
 .hero3d-cap { position: absolute; left: clamp(20px, 4vw, 90px); bottom: clamp(70px, 14vh, 170px); max-width: min(680px, 46vw); color: #221e1b;
-  opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; pointer-events: none; z-index: 2; }
+  opacity: 0; transform: translateY(24px); transition: opacity 1s ease, transform 1s ease; pointer-events: none; z-index: 2; }
 .hero3d-cap.is-active { opacity: 1; transform: none; pointer-events: auto; }
 .hero3d-cap h1, .hero3d-cap h2 { font-weight: 900; text-transform: uppercase; line-height: 1.08; letter-spacing: -.5px; color: #1d1a17; }
 .hero3d-cap h1 { font-size: clamp(30px, 3.6vw, 58px); }
@@ -733,3 +733,23 @@ body.menu-open .header { z-index: 300; background: transparent; border-bottom-co
 @media (max-width: 768px) {
   .hero3d-stage::after { background: linear-gradient(180deg, rgba(239,233,222,.96) 0%, rgba(239,233,222,.9) 42%, rgba(239,233,222,0) 62%); }
 }
+
+/* Главная: наши объекты (фото) */
+.works { position: relative; z-index: 3; background: #efe9de; padding: clamp(60px, 9vh, 110px) 0 clamp(70px, 10vh, 120px); }
+.works-inner { max-width: 2200px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 90px); }
+.works-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; border-bottom: 1.5px solid #221e1b; padding-bottom: 18px; margin-bottom: 34px; }
+.works-head h2 { font-size: clamp(30px, 3.4vw, 54px); font-weight: 900; text-transform: uppercase; color: #1d1a17; line-height: 1; letter-spacing: -.5px; }
+.works-head .hero3d-link { margin: 0; }
+.works-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(16px, 1.6vw, 30px); }
+.works-card { display: flex; flex-direction: column; gap: 6px; color: #221e1b; text-decoration: none; }
+.works-photo { display: block; aspect-ratio: 4 / 3; overflow: hidden; border: 1.5px solid #221e1b; background: #ddd5c8; margin-bottom: 10px; }
+.works-photo img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(.35) contrast(1.02); transition: transform .5s ease, filter .5s ease; }
+.works-card:hover .works-photo img { transform: scale(1.04); filter: none; }
+.works-meta { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #8a7f73; }
+.works-title { font-size: clamp(18px, 1.4vw, 22px); font-weight: 800; line-height: 1.25; }
+.works-desc { font-size: 15px; color: #4a4239; line-height: 1.5; }
+@media (max-width: 1200px) { .works-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 576px) { .works-grid { grid-template-columns: 1fr; gap: 28px; } }
+.page-home .header-min { background: rgba(239,233,222,.88); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.page-home.menu-open .header-min { background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
+.works { scroll-margin-top: 90px; }

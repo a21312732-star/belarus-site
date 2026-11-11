@@ -163,8 +163,7 @@
   var main = mkLines(sketch(segs, 1, 0.09, 0.35), 0x2b2724, 0.85);   // основной нажим
   var soft = mkLines(sketch(segs, 1, 0.18, 0.6), 0x4a4540, 0.35);   // второй, лёгкий проход
   var guide = mkLines(sketch(axes, 1, 0.05, 1.2), 0x9a9188, 0.28);  // оси на «бумаге»
-  [main, soft].forEach(function (o) { o.geo.setDrawRange(0, reduceMotion ? o.count : 0); });
-  if (!reduceMotion) guide.mat.opacity = 0;
+
 
   /* ---------- Ракурсы по прокрутке ---------- */
   var views = [
@@ -176,17 +175,21 @@
   ].map(function (v) { return { pos: new THREE.Vector3().fromArray(v.pos), target: new THREE.Vector3().fromArray(v.target) }; });
 
   function ease(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+  function smooth(t) { return t * t * (3 - 2 * t); }
+
+  // камера идёт по плавной кривой через все ракурсы, без остановок
+  var posCurve = new THREE.CatmullRomCurve3(views.map(function (v) { return v.pos; }), false, 'centripetal');
+  var tgtCurve = new THREE.CatmullRomCurve3(views.map(function (v) { return v.target; }), false, 'centripetal');
 
   var camPos = views[0].pos.clone(), camTgt = views[0].target.clone();
   var wantPos = camPos.clone(), wantTgt = camTgt.clone();
   var lastCap = -1;
   function fromScroll() {
-    var f = progress() * (views.length - 1);
-    var i = Math.min(views.length - 2, Math.floor(f));
-    var t = ease(Math.min(1, Math.max(0, f - i)));
-    wantPos.lerpVectors(views[i].pos, views[i + 1].pos, t);
-    wantTgt.lerpVectors(views[i].target, views[i + 1].target, t);
-    var c = Math.round(f);
+    var p = progress();
+    var u = smooth(p);
+    posCurve.getPoint(u, wantPos);
+    tgtCurve.getPoint(u, wantTgt);
+    var c = Math.round(p * (views.length - 1));
     if (c !== lastCap) { showCaption(c); lastCap = c; }
   }
   window.addEventListener('scroll', fromScroll, { passive: true });
@@ -208,17 +211,10 @@
   window.addEventListener('resize', function () { resize(); fromScroll(); });
   resize();
 
-  var born = performance.now(), DRAW = 3800;
   var up = new THREE.Vector3();
   function frame(now) {
-    if (!reduceMotion) {
-      var k = ease(Math.min(1, (now - born) / DRAW));
-      main.geo.setDrawRange(0, Math.floor(k * main.count / 2) * 2);
-      soft.geo.setDrawRange(0, Math.floor(Math.max(0, k * 1.08 - 0.08) * soft.count / 2) * 2);
-      guide.mat.opacity = 0.28 * Math.min(1, (now - born) / 1800);
-    }
     // плавное следование за прокруткой + лёгкое «дыхание» камеры
-    var lag = reduceMotion ? 1 : 0.08;
+    var lag = reduceMotion ? 1 : 0.035;
     camPos.lerp(wantPos, lag); camTgt.lerp(wantTgt, lag);
     camera.position.copy(camPos);
     if (!reduceMotion) {
