@@ -65,18 +65,49 @@
     </nav>
 
     <main id="content" class="hero3d">
-        <canvas id="scene" aria-label="Трёхмерная модель здания: административный и производственный корпуса, башенный кран"></canvas>
-        <div class="hero3d-text">
-            <h1>Строительство и реконструкция зданий и сооружений под ключ</h1>
-            <p class="hero-subtitle">Генеральный подряд, полный спектр общестроительных услуг, монтаж наружных и внутренних инженерных систем, комплекс пусконаладочных работ</p>
-        </div>
-        <div class="hero3d-hint" aria-live="polite">
-            <button type="button" class="hero3d-next" id="view-next" aria-label="Следующий ракурс">
-                <kbd>Пробел</kbd><span class="hero3d-tap">Нажмите</span>
-            </button>
-            <span class="hero3d-view"><span id="view-name">Общий вид</span> <span class="hero3d-num" id="view-num">1 / 5</span></span>
+        <div class="hero3d-stage">
+            <canvas id="scene" aria-hidden="true"></canvas>
+            <div class="hero3d-paper" aria-hidden="true"></div>
+
+            <section class="hero3d-cap is-active">
+                <h1>Строительство и реконструкция зданий и сооружений под ключ</h1>
+                <p class="hero-subtitle">Генеральный подряд, полный спектр общестроительных услуг, монтаж наружных и внутренних инженерных систем, комплекс пусконаладочных работ</p>
+                <span class="hero3d-scroll" aria-hidden="true"></span>
+            </section>
+            <section class="hero3d-cap">
+                <span class="hero3d-num">01</span>
+                <h2>Общестроительные работы</h2>
+                <p>Земляные работы, фундаменты, монолит, кладка, металлоконструкции, кровля, сэндвич-панели и благоустройство.</p>
+                <a href="obshchestroitelnye-raboty.html" class="hero3d-link">Подробнее</a>
+            </section>
+            <section class="hero3d-cap">
+                <span class="hero3d-num">02</span>
+                <h2>Монтаж технологического оборудования</h2>
+                <p>Монтаж оборудования и систем в производственных корпусах — от подготовки фундаментов до пусконаладки.</p>
+                <a href="montazh-oborudovaniya.html" class="hero3d-link">Подробнее</a>
+            </section>
+            <section class="hero3d-cap">
+                <span class="hero3d-num">03</span>
+                <h2>Генеральный подряд</h2>
+                <p>Ведём объект целиком: координация подрядчиков, сроки, исполнительная документация и сдача в эксплуатацию.</p>
+                <a href="genpodryad.html" class="hero3d-link">Подробнее</a>
+            </section>
+            <section class="hero3d-cap">
+                <span class="hero3d-num">04</span>
+                <h2>Инженерные сети</h2>
+                <p>Наружные и внутренние сети электроснабжения, вентиляции, водопровода и канализации.</p>
+                <a href="elektrosnabzhenie.html" class="hero3d-link">Электроснабжение</a>
+                <a href="ventilyaciya-vk.html" class="hero3d-link">Вентиляция, ВК и НВК</a>
+            </section>
         </div>
     </main>
+
+    <footer class="footer footer-compact">
+        <div class="footer-bottom">
+            <p>© 2026 ООО «АльтерБелТех». Все права защищены.</p>
+            <a href="privacy.html" class="footer-link">Политика конфиденциальности</a>
+        </div>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="hero3d.js" defer></script>
