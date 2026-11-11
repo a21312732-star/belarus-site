@@ -799,5 +799,20 @@ body.menu-open .header { z-index: 300; background: transparent; border-bottom-co
 /* Остальные страницы: рисунок в шапках разделов и едва заметно на фоне */
 body:not(.page-home)::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
   background: url('img/drawing-city.webp') center bottom / cover no-repeat; opacity: .07; }
-.hero-service-minimal { background: linear-gradient(90deg, rgba(28,23,19,.95) 0%, rgba(28,23,19,.75) 55%, rgba(28,23,19,.55) 100%), url('img/drawing-city.webp') center 70% / cover no-repeat, #1c1713; }
-.about-hero { background: linear-gradient(90deg, rgba(14,12,10,.94) 0%, rgba(14,12,10,.7) 55%, rgba(14,12,10,.45) 100%), url('img/drawing-city.webp') center 70% / cover no-repeat, #0e0c0a; }
+.hero-service-minimal { background: linear-gradient(90deg, rgba(28,23,19,.95) 0%, rgba(28,23,19,.75) 55%, rgba(28,23,19,.55) 100%), url('img/drawing-city.webp') center bottom / cover no-repeat, #1c1713; }
+.about-hero { background: linear-gradient(90deg, rgba(14,12,10,.94) 0%, rgba(14,12,10,.7) 55%, rgba(14,12,10,.45) 100%), url('img/drawing-city.webp') center bottom / cover no-repeat, #0e0c0a; }
+.home-drawing::after { background: linear-gradient(90deg, rgba(14,12,10,.85) 0%, rgba(14,12,10,.5) 40%, rgba(14,12,10,.05) 75%),
+                                   linear-gradient(0deg, rgba(14,12,10,.85) 0%, rgba(14,12,10,0) 22%); }
+/* рисунок — вся панорама по ширине, прижата к низу */
+.home-drawing .home-bg { background-size: 100% auto; background-position: center bottom; inset: 0; }
+.hero-service-minimal { background-size: auto, 100% auto, auto; background-position: 0 0, center bottom, 0 0; }
+.about-hero { background-size: auto, 100% auto, auto; background-position: 0 0, center bottom, 0 0; }
+body:not(.page-home)::before { background-size: 100% auto; }
+@media (max-width: 768px) {
+  .home-drawing .home-bg { background-size: auto 38vh; background-position: 30% bottom; }
+  .home-drawing::after { background: linear-gradient(180deg, rgba(14,12,10,.2) 0%, rgba(14,12,10,0) 55%, rgba(14,12,10,.35) 100%); }
+  .home-hero { align-items: flex-start; padding-top: 110px; }
+}
+.hero-service-minimal { background-image: linear-gradient(90deg, rgba(28,23,19,.96) 0%, rgba(28,23,19,.85) 55%, rgba(28,23,19,.72) 100%), url('img/drawing-city.webp'), none; }
+.about-hero { background-image: linear-gradient(90deg, rgba(14,12,10,.95) 0%, rgba(14,12,10,.8) 55%, rgba(14,12,10,.62) 100%), url('img/drawing-city.webp'), none; }
+body:not(.page-home)::before { opacity: .05; }
