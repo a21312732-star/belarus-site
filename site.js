@@ -18,27 +18,6 @@
       }, 600);
     }
 
-    /* ---------- Меню «три полоски» ---------- */
-    var menuBtn = document.querySelector('.menu-btn');
-    var siteMenu = document.getElementById('site-menu');
-    function setMenu(open) {
-      if (!menuBtn || !siteMenu) return;
-      siteMenu.hidden = !open;
-      document.body.classList.toggle('menu-open', open);
-      menuBtn.setAttribute('aria-expanded', String(open));
-      menuBtn.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
-      if (open) { var first = siteMenu.querySelector('a'); if (first) first.focus(); }
-    }
-    if (menuBtn && siteMenu) {
-      menuBtn.addEventListener('click', function () { setMenu(siteMenu.hidden); });
-      siteMenu.addEventListener('click', function (e) {
-        if (e.target === siteMenu || (e.target.closest && e.target.closest('a'))) setMenu(false);
-      });
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && !siteMenu.hidden) { setMenu(false); menuBtn.focus(); }
-      });
-    }
-
     /* ---------- Мобильное меню ---------- */
     var toggle = document.querySelector('.nav-toggle');
     var nav = document.getElementById('site-nav');
