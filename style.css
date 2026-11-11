@@ -643,3 +643,27 @@ body.dialog-open { overflow: hidden; }
 @media (min-width: 1700px) { .about-more-list li { font-size: 17px; } }
 @media (max-width: 992px) { .about-more { grid-template-columns: 1fr; gap: 32px; } }
 @media (max-width: 576px) { .about-more-list li { font-size: 15px; } .about-more-closing { font-size: 16px; } }
+
+/* Тендеры / Новости: пустое состояние */
+.empty-state { max-width: 720px; margin: 20px auto 40px; text-align: center; border: 1px solid #332a23; background: #1c1713; padding: 56px 40px; }
+.empty-state-icon { display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; border: 1px solid #4a3f36; font-size: 28px; color: #c4baae; margin-bottom: 22px; }
+.empty-state h2 { font-size: clamp(22px, 2.4vw, 30px); font-weight: 900; text-transform: uppercase; color: #ffffff; margin-bottom: 14px; }
+.empty-state p { font-size: 16px; line-height: 1.7; color: #c4baae; margin-bottom: 10px; }
+.empty-state .btn { margin-top: 18px; }
+@media (max-width: 576px) { .empty-state { padding: 40px 22px; } }
+
+/* Услуги и техника: блок «обсудить» */
+.service-cta { margin-top: 60px; display: flex; justify-content: space-between; align-items: center; gap: 30px; flex-wrap: wrap; border: 1px solid #332a23; border-left: 3px solid #ffffff; background: #1c1713; padding: 32px 36px; }
+.service-cta h2 { font-size: clamp(20px, 2vw, 26px); font-weight: 900; text-transform: uppercase; color: #ffffff; margin-bottom: 8px; }
+.service-cta p { color: #c4baae; font-size: 15px; }
+.service-cta-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+@media (max-width: 576px) { .service-cta { padding: 24px 20px; } .service-cta-actions, .service-cta-actions .btn { width: 100%; text-align: center; } }
+
+/* Контакты: мессенджеры и карта */
+.contacts-messengers { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+.contacts-messengers .contact-label { margin-right: 6px; }
+.msg-link { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #ffffff; text-decoration: none; border: 1px solid #4a3f36; padding: 11px 18px; transition: all .2s ease; }
+.msg-link:hover { background: #ffffff; color: #0e0c0a; border-color: #ffffff; }
+.contacts-map { margin-top: 24px; border: 1px solid #332a23; height: 380px; background: #1c1713; }
+.contacts-map iframe { width: 100%; height: 100%; border: 0; display: block; filter: grayscale(.3) brightness(.9); }
+@media (max-width: 576px) { .contacts-map { height: 300px; } }
