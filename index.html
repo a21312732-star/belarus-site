@@ -64,49 +64,68 @@
         </div>
     </nav>
 
-    <main id="content" class="hero3d">
-        <div class="hero3d-stage">
-            <canvas id="scene" aria-hidden="true"></canvas>
+    <div class="home-bgs" aria-hidden="true">
+        <div class="home-bg is-active" style="background-image:url('img/projects/belpromstroy-real.jpg')"></div>
+        <div class="home-bg" style="background-image:url('img/projects/domlux-real.jpg')"></div>
+        <div class="home-bg" style="background-image:url('img/projects/fetsit-centrolit-2024.jpg')"></div>
+        <div class="home-bg" style="background-image:url('img/projects/gts-2025.jpg')"></div>
+        <div class="home-bg" style="background-image:url('img/projects/belpromstroy-2025.jpg')"></div>
+        <div class="home-bg" style="background-image:url('img/projects/centrolit-2025.jpg')"></div>
+    </div>
 
-            <section class="hero3d-cap is-active">
+    <main id="content" class="home">
+        <section class="home-sec home-hero" data-bg="0">
+            <div class="home-text">
                 <h1>Строительство и реконструкция зданий и сооружений под ключ</h1>
-                <p class="hero-subtitle">Генеральный подряд, полный спектр общестроительных услуг, монтаж наружных и внутренних инженерных систем, комплекс пусконаладочных работ</p>
-                <span class="hero3d-scroll" aria-hidden="true"></span>
-            </section>
-            <section class="hero3d-cap">
-                <span class="hero3d-num">01</span>
-                <h2>Общестроительные работы</h2>
-                <p>Земляные работы, фундаменты, монолит, кладка, металлоконструкции, кровля, сэндвич-панели и благоустройство.</p>
-                <a href="obshchestroitelnye-raboty.html" class="hero3d-link">Подробнее</a>
-            </section>
-            <section class="hero3d-cap">
-                <span class="hero3d-num">02</span>
-                <h2>Монтаж технологического оборудования</h2>
-                <p>Монтаж оборудования и систем в производственных корпусах — от подготовки фундаментов до пусконаладки.</p>
-                <a href="montazh-oborudovaniya.html" class="hero3d-link">Подробнее</a>
-            </section>
-            <section class="hero3d-cap">
-                <span class="hero3d-num">03</span>
-                <h2>Генеральный подряд</h2>
-                <p>Ведём объект целиком: координация подрядчиков, сроки, исполнительная документация и сдача в эксплуатацию.</p>
-                <a href="genpodryad.html" class="hero3d-link">Подробнее</a>
-            </section>
-            <section class="hero3d-cap">
-                <span class="hero3d-num">04</span>
-                <h2>Инженерные сети</h2>
-                <p>Наружные и внутренние сети электроснабжения, вентиляции, водопровода и канализации.</p>
-                <a href="elektrosnabzhenie.html" class="hero3d-link">Электроснабжение</a>
-                <a href="ventilyaciya-vk.html" class="hero3d-link">Вентиляция, ВК и НВК</a>
-            </section>
-        </div>
-    </main>
-    <section class="works" aria-labelledby="works-title">
-        <div class="works-inner">
-            <div class="works-head">
-                <h2 id="works-title">Наши объекты</h2>
-                <a href="o-kompanii.html#projects" class="hero3d-link">Все проекты</a>
+                <p class="home-lead">Генеральный подряд, полный спектр общестроительных услуг, монтаж наружных и внутренних инженерных систем, комплекс пусконаладочных работ</p>
+                <span class="home-scroll" aria-hidden="true"></span>
             </div>
-            <div class="works-grid">
+        </section>
+
+        <section class="home-sec" data-bg="1" aria-labelledby="h-about">
+            <div class="home-text">
+                <span class="home-num">О компании</span>
+                <h2 id="h-about">Работаем с 2023 года</h2>
+                <p>Компания «АльтерБелТех» специализируется на общем строительстве зданий и сооружений, выполняя комплекс работ по возведению объектов различного назначения.</p>
+                <p>Благодаря гибкому и индивидуальному подходу к проектам и стремлению к развитию, формируем свою репутацию на рынке, расширяем партнёрские связи и участвуем в строительных проектах различного масштаба.</p>
+                <a href="o-kompanii.html" class="home-link">Подробнее о компании</a>
+            </div>
+        </section>
+
+        <section class="home-sec" data-bg="2" aria-labelledby="h-services">
+            <div class="home-text">
+                <span class="home-num">Что мы делаем</span>
+                <h2 id="h-services">Направления работ</h2>
+                <ul class="home-services">
+                    <li><a href="genpodryad.html">Генеральный подряд</a></li>
+                    <li><a href="obshchestroitelnye-raboty.html">Общестроительные работы</a></li>
+                    <li><a href="elektrosnabzhenie.html">Сети электроснабжения</a></li>
+                    <li><a href="ventilyaciya-vk.html">Вентиляция, ВК и НВК</a></li>
+                    <li><a href="montazh-oborudovaniya.html">Монтаж технологического оборудования</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="home-sec" data-bg="3" aria-labelledby="h-why">
+            <div class="home-text">
+                <span class="home-num">Почему мы</span>
+                <h2 id="h-why">Отличительные черты сотрудничества</h2>
+                <ul class="home-checks">
+                    <li>Грамотное, профессиональное и качественное выполнение строительно-монтажных работ</li>
+                    <li>Оформление исполнительной документации в полном объёме</li>
+                    <li>Получение справок о выполнении технических условий, акта ввода объекта в эксплуатацию</li>
+                    <li>Комплектация материалами и оборудованием по согласованию с Заказчиком</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="works home-sec" data-bg="4" aria-labelledby="works-title">
+            <div class="works-inner">
+                <div class="works-head">
+                    <h2 id="works-title">Наши объекты</h2>
+                    <a href="o-kompanii.html#projects" class="hero3d-link">Все проекты</a>
+                </div>
+                <div class="works-grid">
                 <a class="works-card" href="o-kompanii.html#projects">
                     <span class="works-photo"><img src="img/projects/belpromstroy-real.jpg" alt="«Белпромстрой»" loading="lazy"></span>
                     <span class="works-meta">г. Минск · 2026</span>
@@ -155,9 +174,21 @@
                     <span class="works-title">РК «Черниговская»</span>
                     <span class="works-desc">Реконструкция топливного хозяйства</span>
                 </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section class="home-sec home-contacts" data-bg="5" aria-labelledby="h-contacts">
+            <div class="home-text">
+                <span class="home-num">Контакты</span>
+                <h2 id="h-contacts">Обсудим Ваш проект</h2>
+                <a href="tel:+375445288999" class="home-phone">+375 (44) 528-89-99</a>
+                <p>Ежедневно с 08:00 до 21:00 · <a href="mailto:alterbeltech@gmail.com">alterbeltech@gmail.com</a></p>
+                <p>Минск, проспект Партизанский, 178, оф. 701<br>Гомель, ул. Б. Хмельницкого, д. 7</p>
+                <a href="contacts.html#contacts" class="home-link">Все контакты</a>
+            </div>
+        </section>
+    </main>
 
     <footer class="footer footer-compact">
         <div class="footer-bottom">
@@ -166,8 +197,7 @@
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="hero3d.js" defer></script>
+    <script src="home.js" defer></script>
     <script src="config.js"></script>
     <script src="site.js" defer></script>
 </body>
