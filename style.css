@@ -895,3 +895,20 @@ body { background: #f4f3f1; color: #141414; }
 .hero .btn-secondary:hover, .about-cta .btn-secondary:hover { background: #ffffff; color: #0e0c0a; border-color: #ffffff; }
 .contact-card-main .contact-label, .contact-card-main .contact-note { color: rgba(255,255,255,.7); }
 .contact-card-main .contact-value, .contact-card-main .contact-action { color: #ffffff; }
+
+/* Цвет выделения — синий */
+:root { --hl: #1f55c4; --hl-dark: #1a47a3; }
+.btn-nav-item:hover, .dropdown-menu-container:hover .btn-services-toggle, .dropdown-menu-container.open .btn-services-toggle,
+.btn-nav-item[aria-current="page"], .btn-services-toggle.is-current,
+.msg-link:hover, .office-links a:hover, .gallery-arrow:hover, .obj-dialog-close:hover, .obj-filter-btn.is-active,
+.btn-secondary:hover, .btn-primary:hover, .btn-submit:hover { background: var(--hl); border-color: var(--hl); color: #ffffff; }
+.dropdown-content a:hover, .dropdown-content a[aria-current="page"] { color: var(--hl); background: #eef2fb; }
+.contact-card:hover, .gallery-card:hover, .srv-work:hover, .home-doc:hover, .obj-filter-btn:hover, .home-more:hover { border-color: var(--hl); }
+.contact-card-main { background: var(--hl); border-color: var(--hl); }
+.contact-card-main:hover { background: var(--hl-dark); border-color: var(--hl-dark); }
+.contact-card-main .contact-label, .contact-card-main .contact-note { color: rgba(255,255,255,.8); }
+.home-more:hover, .contact-action { color: var(--hl); }
+.contact-card-main .contact-action { color: #ffffff; }
+.srv-checks li::before, .about-more-list li::before { border-color: var(--hl); }
+.srv-step-n { border-color: var(--hl); color: var(--hl); }
+.hero .btn-primary:hover, .about-cta .btn-primary:hover, .hero .btn-secondary:hover, .about-cta .btn-secondary:hover { background: var(--hl); border-color: var(--hl); color: #ffffff; }
