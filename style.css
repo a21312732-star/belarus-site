@@ -928,3 +928,6 @@ body { background: #f4f3f1; color: #141414; }
 .sec-btn { padding: 0; border: 0; background: none; font-size: 22px; }
 .sec-btn:hover { background: none; color: var(--hl); }
 .srv-h2.sec-head { border-bottom: 1px solid #e3e1dd; padding-bottom: 14px; }
+/* Главная: «Обсудим ваш объект?» — прямоугольная полоса во всю ширину */
+#content + .about-cta { margin: 0 0 0; border-radius: 0 !important; border: 0; }
+#content + .about-cta + .footer { border-top: 0; }
