@@ -844,3 +844,52 @@ a { color: inherit; }
 .srv-item h3, .srv-steps h3, .gallery-card-desc h3, .contact-label, .contact-action, .office-card .contact-label { text-transform: none; letter-spacing: 0; }
 .srv-item h3, .srv-steps h3 { font-size: 17px; font-weight: 700; }
 .contacts-section ~ .combined-wrapper, .combined-wrapper.contacts-bottom { max-width: none; }
+
+/* ===== «О компании» и «Проекты» — светлый стиль главной ===== */
+.about-top { margin: 0; padding-top: 0; border-radius: 0; overflow: visible; background: none; color: var(--ink); }
+.about-top::before, .about-top::after { display: none; }
+.about-top .about-hero { margin: 0 var(--pad); border-radius: var(--r); overflow: hidden; min-height: 440px; display: flex; align-items: flex-end;
+  background: linear-gradient(0deg, rgba(10,10,10,.75) 0%, rgba(10,10,10,.3) 55%, rgba(10,10,10,.15) 100%), url('img/about/hero.jpg') center / cover no-repeat, #222; }
+.about-top .about-hero-inner { width: 100%; max-width: none; padding: 150px clamp(24px, 4vw, 64px) clamp(32px, 4vw, 56px); }
+.about-top .breadcrumbs, .about-top .breadcrumbs a, .about-top .breadcrumbs [aria-current] { color: rgba(255,255,255,.8); }
+.about-top .about-hero-title { color: #fff; font-weight: 700; font-size: clamp(36px, 5vw, 72px); }
+.about-wrap { max-width: 1460px; padding-left: var(--pad) !important; padding-right: var(--pad) !important; }
+.about-top .about-partner { padding: clamp(60px, 8vw, 110px) 0 0; }
+.about-top .about-h2 { color: var(--ink); }
+.about-top .about-text p { color: #3a3a3a; font-size: 17px; }
+.about-top .about-more { gap: 18px; }
+.about-top .about-more-col { background: #fff; border-radius: var(--r-sm); padding: clamp(22px, 2.5vw, 34px); box-shadow: 0 10px 34px rgba(0,0,0,.05); }
+.about-top .about-more-lead { color: var(--ink); font-size: 18px; }
+.about-top .about-more-list li, .about-top .about-more-list li:first-child { color: #3a3a3a; border-color: var(--line); padding-left: 34px; }
+.about-top .about-more-list li:first-child { border-top: 0; }
+.about-top .about-more-list li::before { left: 0; top: 14px; width: 20px; height: 20px; border: 0; border-radius: 50%; transform: none;
+  background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' fill='none' stroke='%23fff' stroke-width='2.2'/%3E%3C/svg%3E") center / 14px no-repeat; }
+.about-top .about-more-closing { color: var(--ink); font-style: normal; font-weight: 500; border-left: 3px solid var(--accent); }
+
+.about-projects { padding-top: clamp(60px, 8vw, 110px); }
+.about-projects .about-h2 { font-size: clamp(28px, 3vw, 46px); }
+.projects-lead { color: var(--muted); }
+.obj-year-title { font-weight: 600; font-size: clamp(22px, 2vw, 30px); border-bottom-color: var(--line); }
+.obj-grid { gap: 18px; }
+.obj-card, .obj-card.has-photo { aspect-ratio: auto; display: flex; flex-direction: column; justify-content: flex-start; padding: 10px; background: #fff; border: 0; border-radius: var(--r-sm); box-shadow: 0 10px 34px rgba(0,0,0,.06); overflow: hidden; }
+.obj-card .obj-media { position: relative; inset: auto; aspect-ratio: 4 / 3; border-radius: 12px; overflow: hidden; background: #ddd; }
+.obj-card.has-photo .obj-media::after, .obj-card.is-open .obj-media::after { display: none; }
+.obj-card .obj-body { padding: 14px 8px 6px; gap: 4px; }
+.obj-card .obj-name, .obj-card.has-photo .obj-name { color: var(--ink); text-shadow: none; font-size: 19px; font-weight: 700; }
+.obj-card .obj-city, .obj-card.has-photo .obj-city { color: var(--muted); text-shadow: none; text-transform: none; letter-spacing: 0; font-size: 13px; }
+.obj-card.has-photo .obj-city::before { border-color: var(--accent); }
+.obj-card .obj-more { margin-top: 10px; height: 40px; padding: 0 18px; border: 1.5px solid var(--line); background: #fff; color: var(--ink); font-weight: 700; }
+.obj-card .obj-more:hover { border-color: var(--ink); background: #fff; color: var(--ink); }
+/* открытая карточка: фото слева, описание справа */
+.obj-card.is-open { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.3fr); gap: clamp(18px, 3vw, 40px); padding: 14px; min-height: 0; align-items: start; }
+.obj-card.is-open .obj-media { aspect-ratio: 4 / 3.2; position: sticky; top: 90px; }
+.obj-card.is-open .obj-body { padding: 10px 6px 10px 0; }
+.obj-card.is-open .obj-name { font-size: clamp(24px, 2.4vw, 34px); }
+.obj-card.is-open .obj-more { order: 10; background: var(--dark); color: #fff; border-color: var(--dark); }
+.obj-details .obj-dlg-h { color: var(--ink); }
+.obj-details .obj-dlg-list, .obj-details dd, .obj-details li, .obj-det-note { color: #3a3a3a; text-shadow: none; }
+.obj-details dt, .obj-det-photo { color: var(--muted); }
+.obj-det-note a { color: var(--accent); }
+.obj-details .obj-dlg-info { border-color: var(--line); }
+@media (max-width: 768px) { .obj-card.is-open { grid-template-columns: 1fr; } .obj-card.is-open .obj-media { position: relative; top: auto; } }
+.about-top .about-partner, .about-partner { border: 0; }
