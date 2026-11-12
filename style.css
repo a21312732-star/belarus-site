@@ -750,6 +750,26 @@ body.dialog-open { overflow: hidden; }
 /* Техника */
 .tech-card { cursor: default; }
 .tech-tag { align-self: flex-start; margin: 4px 18px 0; padding: 4px 10px; border: 1px solid #4a3f36; border-radius: 999px !important; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a69e93; }
-.about-cta.cta-forest { background: linear-gradient(90deg, rgba(14,12,10,.8) 0%, rgba(14,12,10,.45) 55%, rgba(14,12,10,.15) 100%), url('img/about/forest.jpg') center 40% / cover no-repeat, #000; }
+.about-cta.cta-build { background: linear-gradient(90deg, rgba(14,12,10,.8) 0%, rgba(14,12,10,.45) 55%, rgba(14,12,10,.15) 100%), url('img/about/stroika.jpg') center 55% / cover no-repeat, #000; }
 .photo-credit { position: absolute; right: 30px; bottom: 12px; font-size: 10px; color: rgba(255,255,255,.55); text-decoration: none; }
 .photo-credit:hover { color: #fff; }
+
+/* Техника: всё в один ряд по горизонтали */
+.srv-grid.tech-row6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.srv-grid.tech-row6 .srv-item { padding: 24px 18px; }
+.srv-grid.tech-row6 .srv-item h3 { font-size: 14px; }
+.srv-checks.tech-row4 { columns: auto; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.srv-checks.tech-row4 li { border: 1px solid #332a23; border-radius: 14px !important; padding: 18px 18px 18px 44px; }
+.srv-checks.tech-row4 li::before { left: 18px; top: 25px; }
+@media (max-width: 1100px) { .srv-grid.tech-row6 { grid-template-columns: repeat(3, minmax(0, 1fr)); } .srv-checks.tech-row4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 576px) { .srv-grid.tech-row6, .srv-checks.tech-row4 { grid-template-columns: 1fr; } }
+/* Техника: на всю ширину экрана, как шапка с фото */
+.service-page-main.tech-page { max-width: none; padding-left: clamp(28px, 4vw, 80px); padding-right: clamp(28px, 4vw, 80px); }
+.tech-page .service-lead-text { max-width: 1100px; }
+.tech-page .srv-works { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+@media (max-width: 992px) { .tech-page .srv-works { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 576px) { .tech-page .srv-works { grid-template-columns: 1fr; } }
+.tech-hero .container-service { max-width: none; }
+.service-page-main.tech-page { padding-left: calc(clamp(14px, 2vw, 28px) + 60px); padding-right: calc(clamp(14px, 2vw, 28px) + 60px); }
+@media (max-width: 992px) { .service-page-main.tech-page { padding-left: 30px; padding-right: 30px; } }
+@media (max-width: 576px) { .service-page-main.tech-page { padding-left: 20px; padding-right: 20px; } }
