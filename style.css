@@ -1031,3 +1031,5 @@ body { background: #f4f3f1; color: #141414; }
 .robo-head { transform: translateY(140%); }
 .robo-bubble { margin-bottom: 46px; margin-right: -6px; }
 @media (max-width: 576px) { .robo { right: 2px; bottom: 12px; } .robo-bubble { margin-bottom: 36px; margin-right: -4px; } }
+.robo-bubble { margin-bottom: 72px; }
+@media (max-width: 576px) { .robo-bubble { margin-bottom: 56px; } }

@@ -26,10 +26,17 @@
         '<path d="M48 90 Q60 97 72 90" fill="none" stroke="#4a4a4a" stroke-width="3" stroke-linecap="round"/>' +
       '</svg>';
     document.body.appendChild(box);
-    var show = function () { box.classList.add('is-out'); };
-    setTimeout(show, 2500);
+    // появляется каждую минуту на 20 секунд
+    var SHOW_MS = 20000, EVERY_MS = 60000, stopped = false, hideT = null, cycleT = null;
+    function show() {
+      if (stopped) return;
+      box.classList.remove('is-quiet'); box.classList.add('is-out');
+      hideT = setTimeout(function () { box.classList.remove('is-out'); }, SHOW_MS);
+    }
+    setTimeout(function () { show(); cycleT = setInterval(show, EVERY_MS); }, 2500);
     box.querySelector('.robo-head').addEventListener('click', function () { box.classList.toggle('is-quiet'); });
     box.querySelector('.robo-close').addEventListener('click', function () {
+      stopped = true; clearTimeout(hideT); clearInterval(cycleT);
       box.classList.remove('is-out');
       try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
       setTimeout(function () { box.remove(); }, 600);
