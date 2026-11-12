@@ -740,3 +740,9 @@ body.dialog-open { overflow: hidden; }
 .doc-num { padding: 4px 18px 0; font-size: 12px; font-weight: 700; letter-spacing: .5px; color: #a69e93; }
 .doc-valid { padding: 2px 18px 0; font-size: 13px; color: #e3dbd0; font-weight: 600; }
 .doc-open { margin-top: auto; padding: 8px 18px 0; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #ffffff; }
+
+/* «О компании»: блок «Обсудим Ваш проект?» — скруглённая карточка с фото */
+.about-cta { position: relative; margin: 30px clamp(14px, 2vw, 28px) 60px; border: 0; border-radius: 28px !important; overflow: hidden; padding: 70px 0;
+  background: linear-gradient(90deg, rgba(14,12,10,.92) 0%, rgba(14,12,10,.75) 55%, rgba(14,12,10,.5) 100%), url('img/hero/genpodryad.jpg') center / cover no-repeat, #1c1713; }
+.about-cta .about-h2 { margin-bottom: 12px; }
+.about-cta p { color: #e3dbd0; }
