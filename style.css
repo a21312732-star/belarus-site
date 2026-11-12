@@ -924,3 +924,7 @@ body { background: #f4f3f1; color: #141414; }
 .sec-btn span { font-weight: 400; }
 /* Призыв на главной */
 #content + .about-cta { margin-top: 0; }
+/* Заголовки разделов — текстовые ссылки, без рамки */
+.sec-btn { padding: 0; border: 0; background: none; font-size: 22px; }
+.sec-btn:hover { background: none; color: var(--hl); }
+.srv-h2.sec-head { border-bottom: 1px solid #e3e1dd; padding-bottom: 14px; }
