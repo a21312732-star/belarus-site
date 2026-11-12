@@ -1,6 +1,17 @@
 /* Главная v2: меню, появление блоков, параллакс */
 (function () {
   'use strict';
+  // запуск вступительной анимации первого экрана
+  var started = false;
+  function go() {
+    if (started) return; started = true;
+    requestAnimationFrame(function () { requestAnimationFrame(function () {
+      document.body.classList.remove('is-loading'); document.body.classList.add('is-ready');
+    }); });
+  }
+  var heroImg = document.querySelector('.hero-front');
+  if (heroImg && !heroImg.complete) { heroImg.addEventListener('load', go); heroImg.addEventListener('error', go); setTimeout(go, 2500); }
+  else go();
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // меню на телефоне
