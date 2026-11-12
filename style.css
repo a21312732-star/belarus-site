@@ -773,3 +773,10 @@ body.dialog-open { overflow: hidden; }
 .service-page-main.tech-page { padding-left: calc(clamp(14px, 2vw, 28px) + 60px); padding-right: calc(clamp(14px, 2vw, 28px) + 60px); }
 @media (max-width: 992px) { .service-page-main.tech-page { padding-left: 30px; padding-right: 30px; } }
 @media (max-width: 576px) { .service-page-main.tech-page { padding-left: 20px; padding-right: 20px; } }
+/* Техника: карточки поменьше, по 4 в ряд */
+.tech-page .srv-works.tech-grid4 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.tech-grid4 .srv-work-photo { aspect-ratio: 16 / 10; }
+.tech-grid4 .srv-work-title { font-size: 16px; }
+.tech-grid4 .srv-work-desc { font-size: 13px; }
+@media (max-width: 1100px) { .tech-page .srv-works.tech-grid4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 576px) { .tech-page .srv-works.tech-grid4 { grid-template-columns: 1fr; } }
