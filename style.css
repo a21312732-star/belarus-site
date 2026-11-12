@@ -953,3 +953,38 @@ body { background: #f4f3f1; color: #141414; }
 /* Рендеринг */
 .empty-state { border-radius: 18px !important; }
 .empty-state h2 { text-transform: none; }
+
+/* Услуги и Документы: на всю ширину, блоки по горизонтали */
+.hero-service-minimal .container-service { max-width: none; }
+.service-page-main:not(.legal-text) { max-width: none; padding-left: calc(clamp(14px, 2vw, 28px) + 60px); padding-right: calc(clamp(14px, 2vw, 28px) + 60px); }
+.service-page-main .service-lead-text { max-width: 1100px; }
+.service-page-main:not(.tech-page) .srv-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.service-page-main:not(.tech-page) .srv-works { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.service-page-main:not(.tech-page) .srv-works .srv-work-photo { aspect-ratio: 16 / 9; }
+.service-page-main .srv-checks { columns: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+.service-page-main .srv-checks li { border: 1px solid #d6d3ce; border-radius: 14px !important; padding: 18px 18px 18px 44px; background: #ffffff; }
+.service-page-main .srv-checks li::before { left: 18px; top: 25px; }
+.doc-grid { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+.service-page-main .srv-works.doc-grid { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+@media (max-width: 992px) {
+  .service-page-main:not(.legal-text) { padding-left: 30px; padding-right: 30px; }
+  .service-page-main:not(.tech-page) .srv-works { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 576px) {
+  .service-page-main:not(.legal-text) { padding-left: 20px; padding-right: 20px; }
+  .service-page-main:not(.tech-page) .srv-works, .service-page-main .srv-works.doc-grid { grid-template-columns: 1fr; }
+}
+/* Документы: превью в правильных пропорциях; сертификаты — 6 в ряд, аттестаты — 2 широкие карточки */
+.service-page-main .doc-card .doc-photo { aspect-ratio: 1 / 1.414; }
+.service-page-main .srv-works.doc-cert { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.service-page-main .srv-works.doc-att { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.doc-att .doc-card { display: grid; grid-template-columns: 220px 1fr; grid-template-rows: auto auto auto auto 1fr; column-gap: 6px; padding-bottom: 0; }
+.doc-att .doc-card .doc-photo { grid-row: 1 / 7; margin: 0; }
+.doc-att .doc-card > span:not(.doc-photo) { grid-column: 2; padding-left: 18px; padding-right: 18px; }
+.doc-att .doc-num { padding-top: 22px !important; }
+.doc-att .doc-open { padding-bottom: 22px; align-self: end; }
+@media (max-width: 1300px) { .service-page-main .srv-works.doc-cert { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 992px) { .service-page-main .srv-works.doc-att { grid-template-columns: 1fr; } .service-page-main .srv-works.doc-cert { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 576px) { .doc-att .doc-card { grid-template-columns: 120px 1fr; } .service-page-main .srv-works.doc-cert { grid-template-columns: 1fr; } }
+.service-page-main:not(.tech-page) .srv-works .doc-card .srv-work-photo.doc-photo { aspect-ratio: 1 / 1.414; }
+.doc-att .doc-card .srv-work-photo.doc-photo { align-self: start; }
