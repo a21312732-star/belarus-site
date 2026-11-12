@@ -726,3 +726,9 @@ body.dialog-open { overflow: hidden; }
 .about-top > section { position: relative; z-index: 1; }
 .about-top .about-hero { background: none; border-bottom: none; }
 .about-top + .about-projects { position: relative; z-index: 1; }
+
+/* Скруглённые фото и карточки с фото */
+.srv-work, .gallery-card, .obj-card, .gallery-main { border-radius: 18px !important; overflow: hidden; }
+.gallery-thumb, .gallery-thumb img { border-radius: 12px !important; }
+.header-logo-img { border-radius: 8px !important; }
+.hero-service-minimal.has-photo { margin: 20px clamp(14px, 2vw, 28px) 0; border-radius: 28px !important; overflow: hidden; border-bottom: 0; }
