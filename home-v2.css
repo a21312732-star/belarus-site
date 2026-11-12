@@ -94,7 +94,7 @@ a { color: inherit; }
 
 /* Тёмный баннер */
 .banner { position: relative; margin: clamp(60px, 9vw, 120px) var(--pad) 0; border-radius: var(--r); overflow: hidden; color: #fff; min-height: 560px; display: flex; flex-direction: column; justify-content: space-between; background: var(--dark); }
-.banner-photo { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,10,10,.85) 0%, rgba(10,10,10,.45) 55%, rgba(10,10,10,.25) 100%), url('img/projects/centrolit-2025.jpg') center / cover no-repeat; transform: scale(var(--banner-s, 1.08)); will-change: transform; }
+.banner-photo { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,10,10,.85) 0%, rgba(10,10,10,.45) 55%, rgba(10,10,10,.25) 100%), url('img/v2/banner.jpg') center / cover no-repeat; transform: scale(var(--banner-s, 1.08)); will-change: transform; }
 .banner-body { position: relative; padding: clamp(28px, 4vw, 64px); max-width: 720px; }
 .banner-body h2 { margin-top: 14px; font-size: clamp(28px, 3vw, 46px); font-weight: 600; line-height: 1.1; letter-spacing: -.02em; }
 .banner-list { position: relative; list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin: 0 clamp(16px, 2vw, 28px) clamp(16px, 2vw, 28px); border-radius: var(--r-sm);
@@ -127,7 +127,7 @@ a { color: inherit; }
 
 /* Призыв */
 .cta { position: relative; margin: clamp(60px, 9vw, 120px) var(--pad) 0; border-radius: var(--r); overflow: hidden; color: #fff; min-height: 420px; display: flex; align-items: center; background: var(--dark); }
-.cta-photo { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,10,10,.85) 0%, rgba(10,10,10,.35) 60%, rgba(10,10,10,.15) 100%), url('img/projects/gts-2025.jpg') center / cover no-repeat; }
+.cta-photo { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,10,10,.85) 0%, rgba(10,10,10,.35) 60%, rgba(10,10,10,.15) 100%), url('img/v2/cta.jpg') center / cover no-repeat; }
 .cta-body { position: relative; padding: clamp(28px, 4vw, 64px); max-width: 640px; }
 .cta-body h2 { font-size: clamp(28px, 3vw, 46px); font-weight: 600; line-height: 1.1; letter-spacing: -.02em; }
 .cta-body p { margin: 14px 0 24px; color: rgba(255,255,255,.85); }
