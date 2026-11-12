@@ -11,3 +11,18 @@
 | montazh-oborudovaniya.jpg | rawpixel.com — «Metalworking equipment» |
 | autopark.jpg, zemlyanye-raboty.jpg, dostavka.jpg | https://pd.w.org/2025/07/2246888ec6c55cb49.09183716-2048x1152.jpg |
 | demontazh.jpg, blagoustrojstvo.jpg | https://commons.wikimedia.org/wiki/File:Warehouse_construction_at_Nishi_Inter,_Sakado.jpg |
+
+
+## Ноябрь 2026: новые фото шапок (WordPress Photo Directory, CC0)
+
+| Файл | Источник |
+|---|---|
+| genpodryad-n.jpg | https://wordpress.org/photos/photo/661682727a/ |
+| obshchestroitelnye-raboty-n.jpg | https://wordpress.org/photos/photo/48265796ca/ |
+| elektrosnabzhenie-n.jpg | https://wordpress.org/photos/photo/6346897b3e/ |
+| ventilyaciya-vk-n.jpg | https://wordpress.org/photos/photo/99656edaf5/ |
+| montazh-oborudovaniya-n.jpg | https://wordpress.org/photos/photo/896632567c/ |
+| autopark-n.jpg | https://wordpress.org/photos/photo/589671914f/ |
+| dokumenty-n.jpg | https://wordpress.org/photos/photo/12664ef761/ |
+| ../about/hero-n.jpg | https://wordpress.org/photos/photo/49369f4fb0/ |
+| ../about/stroika-n.jpg | https://wordpress.org/photos/photo/96165796d5/ |
