@@ -989,3 +989,18 @@ body { background: #f4f3f1; color: #141414; }
 .service-page-main:not(.tech-page) .srv-works .doc-card .srv-work-photo.doc-photo { aspect-ratio: 1 / 1.414; }
 .doc-att .doc-card .srv-work-photo.doc-photo { align-self: start; }
 #content + .about-cta { padding-top: 100px; padding-bottom: 110px; }
+
+/* Подвал: название, УНП, телефон, почта, офисы */
+.site-foot { background: #141414; color: #b8b4ae; padding: 56px calc(clamp(14px, 2vw, 28px) + 60px) 28px; font-size: 14px; line-height: 1.6; }
+.site-foot-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1.2fr; gap: 32px; }
+.site-foot-col { display: flex; flex-direction: column; gap: 6px; }
+.site-foot-name { color: #ffffff; font-size: 18px; font-weight: 800; }
+.site-foot-label { color: #ffffff; font-weight: 700; font-size: 13px; margin-bottom: 2px; }
+.site-foot a { color: #e3e1dd; text-decoration: none; }
+.site-foot a:hover { color: #ffffff; text-decoration: underline; }
+.site-foot-phone { font-size: 20px; font-weight: 800; color: #ffffff !important; }
+.site-foot-bottom { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 40px; padding-top: 20px; border-top: 1px solid #2a2a2a; font-size: 13px; color: #8a8680; }
+.site-foot-bottom a { color: #8a8680; }
+#content + .about-cta + .site-foot { border-top: 1px solid #222; }
+@media (max-width: 992px) { .site-foot { padding-left: 30px; padding-right: 30px; } .site-foot-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 576px) { .site-foot { padding: 44px 20px 24px; } .site-foot-grid { grid-template-columns: 1fr; gap: 24px; } }
