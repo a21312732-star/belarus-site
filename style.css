@@ -1033,3 +1033,11 @@ body { background: #f4f3f1; color: #141414; }
 @media (max-width: 576px) { .robo { right: 2px; bottom: 12px; } .robo-bubble { margin-bottom: 36px; margin-right: -4px; } }
 .robo-bubble { margin-bottom: 72px; }
 @media (max-width: 576px) { .robo-bubble { margin-bottom: 56px; } }
+/* Роботик: сбоку, посередине по высоте, выезжает справа */
+.robo { top: 50%; bottom: auto; right: 0; transform: translateY(-50%); align-items: center; gap: 0; }
+.robo-head { transform: translateX(115%); }
+.robo.is-out .robo-head { transform: translateX(14%); }
+.robo-bubble { margin-bottom: 0; margin-right: 0; border-radius: 16px 16px 4px 16px !important; transform: translateX(14px) scale(.96); }
+.robo.is-out .robo-bubble { transform: none; }
+.robo.is-quiet .robo-bubble { transform: translateX(14px) scale(.96); }
+@media (max-width: 576px) { .robo { right: 0; bottom: auto; } .robo-bubble { margin-bottom: 0; margin-right: 0; } }
