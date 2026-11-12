@@ -3,152 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0e0c0a">
+    <meta name="theme-color" content="#f4f3f1">
     <title>ООО «АльтерБелТех» | Генеральный подряд и инженерные сети полного цикла</title>
-    <meta name="description" content="Реализация строительных проектов полного цикла, общестроительные работы и монтаж технологического оборудования в Минске и по всей Беларуси.">
+    <meta name="description" content="Строительство и реконструкция зданий и сооружений под ключ: генеральный подряд, общестроительные работы, инженерные сети и монтаж оборудования по всей Беларуси.">
     <link rel="icon" type="image/jpeg" href="1001.jpg">
-    <link rel="stylesheet" href="style.css?v=20261114">
-    <noscript><style>.preloader{display:none !important}</style></noscript>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="home-v2.css?v=3">
 </head>
 <body>
-
-    <div class="preloader" id="preloader">
-        <div class="preloader-content">
-            <svg class="preloader-logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <polygon points="50,15 90,85 10,85" fill="none" stroke="#ffffff" stroke-width="8" stroke-linejoin="miter"/>
-                <line x1="22" y1="68" x2="78" y2="68" stroke="#ffffff" stroke-width="6"/>
-            </svg>
-            <div class="preloader-title">АЛЬТЕРБЕЛТЕХ</div>
-            <div class="loading-dots"><span></span><span></span><span></span></div>
-        </div>
-    </div>
-
     <a class="skip-link" href="#content">Перейти к содержимому</a>
 
-    <header class="header">
-        <a href="index.html" class="header-left header-logo-link" aria-current="page">
-            <img src="1001.jpg" alt="ООО «АльтерБелТех»" class="header-logo-img">
-            <div class="header-logo-text-block">
-                <div class="logo logo-heavy">АльтерБелТех</div>
-                <span class="logo-subtext">Строительная компания</span>
-            </div>
+    <header class="nav" id="nav">
+        <a href="index.html" class="nav-logo" aria-current="page">
+            <img src="1001.jpg" alt="" width="34" height="34">
+            <span>Альтер<b>БелТех</b></span>
         </a>
-
-        <nav class="header-center-nav" id="site-nav" aria-label="Основное меню">
-            <a href="o-kompanii.html" class="btn-nav-item">О компании</a>
-            <div class="dropdown-menu-container">
-                <button type="button" class="btn-services-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Услуги ▾</button>
-                <div class="dropdown-content" id="services-menu">
-                    <a href="genpodryad.html">Генеральный подряд</a>
-                    <a href="obshchestroitelnye-raboty.html">Общестроительные работы</a>
-                    <a href="elektrosnabzhenie.html">Сети электроснабжения (внутр./наруж.)</a>
-                    <a href="ventilyaciya-vk.html">Вентиляция, ВК и НВК</a>
-                    <a href="montazh-oborudovaniya.html">Монтаж тех. оборудования</a>
-                </div>
-            </div>
-            <a href="autopark.html" class="btn-nav-item">Техника</a>
-            <a href="contacts.html#contacts" class="btn-nav-item btn-nav-contacts">Контакты</a>
+        <nav class="nav-links" id="nav-links" aria-label="Основное меню">
+            <a href="o-kompanii.html">О компании</a>
+            <a href="#services">Услуги</a>
+            <a href="o-kompanii.html#projects">Проекты</a>
+            <a href="autopark.html">Техника</a>
+            <a href="contacts.html">Контакты</a>
         </nav>
-
-        <div class="header-right">
-            <div class="header-schedule">
-                <strong><a href="tel:+375445288999">+375 (44) 528-89-99</a></strong>
-                <span>Ежедневно с 08:00 до 21:00</span>
-            </div>
-            <a href="index.html#combined-zone" class="btn btn-primary">Связаться</a>
-            <button type="button" class="nav-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
+        <a href="tel:+375445288999" class="pill pill-dark nav-cta">+375 (44) 528-89-99</a>
+        <button type="button" class="nav-burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav-links"><span></span><span></span></button>
     </header>
 
     <main id="content">
-
-    <section class="hero">
-        <div class="hero-container">
-            <h1>Строительство и реконструкция зданий и сооружений под ключ</h1>
-            <p class="hero-subtitle">Генеральный подряд, полный спектр общестроительных услуг, монтаж наружных и внутренних инженерных систем, комплекс пусконаладочных работ</p>
-        </div>
-    </section>
-
-    <section class="stats-section">
-        <div class="container-lg" style="padding: 0;">
-            <div class="stats-grid-main">
-                <div class="stat-main-box">
-                    <span class="stat-title-top">Официальный статус и прозрачность</span>
-                </div>
-                <div class="stat-main-box">
-                    <span class="stat-title-top">Гибкость и индивидуальный подход</span>
-                </div>
-                <div class="stat-main-box">
-                    <span class="stat-title-top">Ответственность и соблюдение сроков</span>
-                </div>
-                <div class="stat-main-box">
-                    <span class="stat-title-top">Качество и надежность</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="combined-zone" class="business-combined-section">
-        <div class="combined-wrapper">
-            <div class="combined-faq-left">
-                <h2>Вопросы и ответы</h2>
-                <p class="combined-faq-sub">Технологические стандарты, регламенты и прозрачность работы компании</p>
-                
-                <div class="faq-compact-list">
-                    <div class="faq-compact-item">
-                        <div class="faq-compact-question">Выполняете ли вы проекты «под ключ»?</div>
-                        <div class="faq-compact-answer">Да, мы выполняем полный комплекс работ силами одной организации. Это включает в себя проектирование, прокладку инженерных сетей (электрика, ВК, вентиляция), монтаж сложного оборудования и официальную сдачу объекта технадзору.</div>
-                    </div>
-                    <div class="faq-compact-item">
-                        <div class="faq-compact-question">Как обеспечивается контроль качества инженерных сетей?</div>
-                        <div class="faq-compact-answer">Контроль ведется в соответствии с регламентами СНиП, ГОСТ и ТКП. Каждая система проходит обязательные индивидуальные испытания (проливы, замеры сопротивления, аэродинамические тесты) с составлением официальных актов скрытых работ.</div>
-                    </div>
-                    <div class="faq-compact-item">
-                        <div class="faq-compact-question">Есть ли у компании аттестаты соответствия на данные работы?</div>
-                        <div class="faq-compact-answer">Да, ООО «АльтерБелТех» осуществляет деятельность на основании официальных аттестатов соответствия Республики Беларусь на функции генерального подрядчика, выполнение общестроительных работ и устройство инженерных сетей.</div>
+        <!-- 1. Герой: надпись «за зданием» -->
+        <section class="hero">
+            <div class="hero-card">
+                <div class="hero-back" aria-hidden="true"></div>
+                <div class="hero-word" aria-hidden="true">АЛЬТЕРБЕЛТЕХ</div>
+                <img class="hero-front" src="img/v2/hero-front.webp" alt="Складской комплекс, построенный при участии ООО «АльтерБелТех»" width="1920" height="1446" fetchpriority="high">
+                <div class="hero-shade" aria-hidden="true"></div>
+                <div class="hero-text">
+                    <h1>Строительство и реконструкция зданий под ключ</h1>
+                    <p>Генеральный подряд, общестроительные работы, инженерные сети и монтаж оборудования по всей Беларуси.</p>
+                    <div class="hero-btns">
+                        <a href="#services" class="pill pill-light">Наши услуги</a>
+                        <a href="contacts.html" class="pill pill-ghost">Обсудить проект</a>
                     </div>
                 </div>
-            </div>
-
-            <div class="combined-contacts-right">
-                <div class="business-text-block">
-                    <h3>Контакты компании:</h3>
-                    <p><strong>Телефон:</strong> <a href="tel:+375445288999">+375 (44) 528-89-99</a></p>
-                    <p><strong>Email:</strong> <a href="mailto:alterbeltech@gmail.com">alterbeltech@gmail.com</a></p>
-                    <p><strong>Офис в Минске:</strong> 220075, г. Минск, проспект Партизанский, 178, оф. 701</p>
-                </div>
-                
-                <div class="business-form-block">
-                    <h4>Отправить проект на расчет стоимости</h4>
-                    <form class="lead-form" data-form="form-index" action="#" method="post">
-                        <label class="visually-hidden" for="form-index-name">Ваше имя</label>
-                        <input id="form-index-name" name="name" type="text" placeholder="Ваше имя" autocomplete="name" maxlength="100" required class="form-input">
-                        <label class="visually-hidden" for="form-index-phone">Номер телефона</label>
-                        <input id="form-index-phone" name="phone" type="tel" placeholder="Номер телефона" autocomplete="tel" inputmode="tel" maxlength="30" pattern="[0-9+\(\)\-\s]{7,30}" title="Номер телефона, например +375 44 123 45 67" required class="form-input">
-                        <label class="visually-hidden" for="form-index-message">Сообщение</label>
-                        <textarea id="form-index-message" name="message" placeholder="Опишите задачу, инженерные сети или требуемые параметры объекта" maxlength="1500" class="form-input form-textarea"></textarea>
-                        <div class="hp" aria-hidden="true"><label>Не заполняйте это поле<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-                        <button type="submit" class="btn btn-submit">Связаться с инженером</button>
-                        <p class="form-status" role="status" aria-live="polite" hidden></p>
-                    </form>
-                    <span class="form-privacy">Отправляя форму, вы соглашаетесь на обработку персональных данных в соответствии с <a href="privacy.html">политикой конфиденциальности</a>.</span>
+                <div class="hero-glass">
+                    <span class="hero-glass-num">29</span>
+                    <span class="hero-glass-txt">объектов выполнено<br>с 2023 года</span>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
+        <!-- 2. Объекты -->
+        <section class="block" aria-labelledby="h-objects">
+            <div class="block-head reveal">
+                <span class="kicker">Портфолио</span>
+                <h2 id="h-objects">Наши объекты</h2>
+                <a href="o-kompanii.html#projects" class="pill pill-outline">Все проекты</a>
+            </div>
+            <div class="cards reveal">
+                <a class="card" href="o-kompanii.html#projects"><span class="card-img"><img src="img/projects/belpromstroy-real.jpg" alt="" loading="lazy"><span class="tag">2026</span></span><b>«Белпромстрой»</b><small>Объект коммунально-складского назначения · Минск</small></a>
+                <a class="card" href="o-kompanii.html#projects"><span class="card-img"><img src="img/projects/domlux-real.jpg" alt="" loading="lazy"><span class="tag">2026</span></span><b>«Домлюксинвест»</b><small>Реконструкция складского здания · Гомель</small></a>
+                <a class="card" href="o-kompanii.html#projects"><span class="card-img"><img src="img/projects/centrolit-2025.jpg" alt="" loading="lazy"><span class="tag">2025</span></span><b>ПС-220 кВ «Центролит»</b><small>Реконструкция подстанции · Гомель</small></a>
+                <a class="card" href="o-kompanii.html#projects"><span class="card-img"><img src="img/projects/gts-2025.jpg" alt="" loading="lazy"><span class="tag">2025</span></span><b>Гомельская ТЭЦ-1</b><small>Строительство РУ-6-35 кВ · Гомель</small></a>
+            </div>
+        </section>
+
+        <!-- 3. Разбросанные фото вокруг заголовка -->
+        <section class="scatter" aria-labelledby="h-scatter">
+            <img class="sc sc1" data-speed="-0.12" src="img/projects/specmash-2024.jpg" alt="" loading="lazy">
+            <img class="sc sc2" data-speed="0.08" src="img/projects/advin-2024.jpg" alt="" loading="lazy">
+            <img class="sc sc3" data-speed="-0.06" src="img/projects/fetsit-bujnovichi-2024.jpg" alt="" loading="lazy">
+            <img class="sc sc4" data-speed="0.14" src="img/projects/alkopak-2026.jpg" alt="" loading="lazy">
+            <img class="sc sc5" data-speed="-0.1" src="img/projects/mzkt-2026.jpg" alt="" loading="lazy">
+            <img class="sc sc6" data-speed="0.1" src="img/projects/cem-2026.jpg" alt="" loading="lazy">
+            <div class="scatter-text reveal">
+                <span class="scatter-icon" aria-hidden="true"><svg viewBox="0 0 100 100"><polygon points="50,15 90,85 10,85" fill="none" stroke="currentColor" stroke-width="7"/><line x1="22" y1="68" x2="78" y2="68" stroke="currentColor" stroke-width="6"/></svg></span>
+                <h2 id="h-scatter">Строим по всей<br><em>Республике Беларусь</em></h2>
+                <p>Минск, Гомель, Светлогорск, Ельск, Минский и Лельчицкий районы — промышленные, складские, энергетические и жилые объекты.</p>
+                <a href="o-kompanii.html#projects" class="pill pill-dark">Смотреть проекты</a>
+            </div>
+        </section>
+
+        <!-- 4. Тёмный баннер + направления -->
+        <section class="banner reveal" aria-labelledby="h-banner">
+            <div class="banner-photo" aria-hidden="true"></div>
+            <div class="banner-body">
+                <span class="kicker kicker-light">Генеральный подряд</span>
+                <h2 id="h-banner">Один ответственный исполнитель — от площадки до ввода в эксплуатацию</h2>
+                <div class="hero-btns">
+                    <a href="genpodryad.html" class="pill pill-light">Подробнее</a>
+                    <a href="contacts.html" class="pill pill-ghost">Связаться</a>
+                </div>
+            </div>
+            <ol class="banner-list">
+                <li><span>01</span>Организация строительства</li>
+                <li><span>02</span>Исполнительная документация</li>
+                <li><span>03</span>Контроль технадзора</li>
+                <li><span>04</span>Сдача объекта</li>
+            </ol>
+        </section>
+
+        <!-- 5. Услуги -->
+        <section class="block" id="services" aria-labelledby="h-services">
+            <div class="block-head reveal">
+                <span class="kicker">Что мы делаем</span>
+                <h2 id="h-services">Наши услуги</h2>
+            </div>
+            <div class="svc reveal">
+                <a class="svc-card" href="genpodryad.html"><img src="img/hero/genpodryad.jpg" alt="" loading="lazy"><span class="svc-n">01</span><span class="svc-t">Генеральный подряд</span></a>
+                <a class="svc-card" href="obshchestroitelnye-raboty.html"><img src="img/hero/obshchestroitelnye-raboty.jpg" alt="" loading="lazy"><span class="svc-n">02</span><span class="svc-t">Общестроительные работы</span></a>
+                <a class="svc-card" href="elektrosnabzhenie.html"><img src="img/hero/elektrosnabzhenie-v2.jpg" alt="" loading="lazy"><span class="svc-n">03</span><span class="svc-t">Сети электроснабжения</span></a>
+                <a class="svc-card" href="ventilyaciya-vk.html"><img src="img/hero/ventilyaciya-vk.jpg" alt="" loading="lazy"><span class="svc-n">04</span><span class="svc-t">Вентиляция, ВК и НВК</span></a>
+                <a class="svc-card" href="montazh-oborudovaniya.html"><img src="img/hero/montazh-oborudovaniya.jpg" alt="" loading="lazy"><span class="svc-n">05</span><span class="svc-t">Монтаж оборудования</span></a>
+            </div>
+        </section>
+
+        <!-- 6. О компании: текст + фото -->
+        <section class="split" aria-labelledby="h-split">
+            <div class="split-text reveal">
+                <span class="kicker">О компании</span>
+                <h2 id="h-split">Ваш партнёр в сфере строительства</h2>
+                <p>Компания «АльтерБелТех» работает на рынке Республики Беларусь с 2023 года. Мы специализируемся на общем строительстве зданий и сооружений, выполняя комплекс работ по возведению объектов различного назначения.</p>
+                <ul class="checks">
+                    <li>Качественное выполнение строительно-монтажных работ</li>
+                    <li>Исполнительная документация в полном объёме</li>
+                    <li>Справки о выполнении ТУ и акт ввода в эксплуатацию</li>
+                    <li>Комплектация материалами по согласованию с Заказчиком</li>
+                </ul>
+                <a href="o-kompanii.html" class="pill pill-dark">Подробнее о компании</a>
+            </div>
+            <div class="split-photo reveal">
+                <img src="img/projects/domlux-real.jpg" alt="Объект «Домлюксинвест»" loading="lazy">
+                <div class="split-badge"><b>Минск · Гомель</b><span>два офиса</span></div>
+            </div>
+        </section>
+
+        <!-- 7. Призыв -->
+        <section class="cta reveal" aria-labelledby="h-cta">
+            <div class="cta-photo" aria-hidden="true"></div>
+            <div class="cta-body">
+                <h2 id="h-cta">Нужна консультация по вашему объекту?</h2>
+                <p>Расскажите о задаче — подготовим предложение по срокам и стоимости.</p>
+                <a href="contacts.html" class="pill pill-light">Оставить заявку</a>
+            </div>
+        </section>
     </main>
 
-    <footer class="footer footer-compact">
-        <div class="footer-bottom">
-            <p>© 2026 ООО «АльтерБелТех». Все права защищены.</p>
-            <a href="privacy.html" class="footer-link">Политика конфиденциальности</a>
+    <footer class="foot">
+        <div class="foot-big reveal">Ждём<br><em>вашего звонка!</em></div>
+        <div class="foot-cols">
+            <div><span class="kicker">Телефон</span><a href="tel:+375445288999">+375 (44) 528-89-99</a><small>Ежедневно с 08:00 до 21:00</small></div>
+            <div><span class="kicker">Почта</span><a href="mailto:alterbeltech@gmail.com">alterbeltech@gmail.com</a></div>
+            <div><span class="kicker">Минск</span><span>проспект Партизанский, 178, оф. 701</span></div>
+            <div><span class="kicker">Гомель</span><span>ул. Б. Хмельницкого, д. 7</span></div>
+        </div>
+        <div class="foot-bottom">
+            <span>© 2026 ООО «АльтерБелТех»</span>
+            <a href="privacy.html">Политика конфиденциальности</a>
         </div>
     </footer>
 
-    <script src="config.js"></script>
-    <script src="site.js?v=20261111" defer></script>
+    <script src="home-v2.js?v=1" defer></script>
 </body>
 </html>
