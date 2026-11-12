@@ -750,7 +750,7 @@ body.dialog-open { overflow: hidden; }
 /* Техника */
 .tech-card { cursor: default; }
 .tech-tag { align-self: flex-start; margin: 4px 18px 0; padding: 4px 10px; border: 1px solid #4a3f36; border-radius: 999px !important; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a69e93; }
-.about-cta.cta-build { background: linear-gradient(90deg, rgba(14,12,10,.8) 0%, rgba(14,12,10,.45) 55%, rgba(14,12,10,.15) 100%), url('img/about/stroika.jpg') center 55% / cover no-repeat, #000; }
+.about-cta.cta-build { background: linear-gradient(90deg, rgba(14,12,10,.85) 0%, rgba(14,12,10,.6) 55%, rgba(14,12,10,.5) 100%), url('img/about/stroika.jpg?v=2') center 35% / cover no-repeat, #000; }
 .photo-credit { position: absolute; right: 30px; bottom: 12px; font-size: 10px; color: rgba(255,255,255,.55); text-decoration: none; }
 .photo-credit:hover { color: #fff; }
 
