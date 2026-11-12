@@ -707,3 +707,11 @@ body.dialog-open { overflow: hidden; }
   .srv-checks { columns: 1; }
 }
 @media (max-width: 576px) { .srv-grid, .srv-works { grid-template-columns: 1fr; } .srv-block { margin-top: 48px; } }
+
+/* Шапки услуг и техники: фото на фоне */
+.hero-service-minimal.has-photo { position: relative; background:
+    linear-gradient(90deg, rgba(14,12,10,.92) 0%, rgba(14,12,10,.72) 45%, rgba(14,12,10,.45) 100%),
+    var(--hero-img) center / cover no-repeat, #1c1713; padding-top: 130px; padding-bottom: 80px; }
+.hero-service-minimal.has-photo .service-title-main { font-size: clamp(30px, 4vw, 56px); text-shadow: 0 2px 20px rgba(0,0,0,.6); }
+.hero-service-minimal.has-photo .service-subtitle-main { text-shadow: 0 1px 10px rgba(0,0,0,.8); }
+@media (max-width: 576px) { .hero-service-minimal.has-photo { padding-top: 90px; padding-bottom: 56px; } }
