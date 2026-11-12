@@ -1041,3 +1041,9 @@ body { background: #f4f3f1; color: #141414; }
 .robo.is-out .robo-bubble { transform: none; }
 .robo.is-quiet .robo-bubble { transform: translateX(14px) scale(.96); }
 @media (max-width: 576px) { .robo { right: 0; bottom: auto; } .robo-bubble { margin-bottom: 0; margin-right: 0; } }
+/* Роботик: чуть левее, облачко выше головы */
+.robo { right: 14px; }
+.robo-head { transform: translateX(140%); margin-top: 60px; }
+.robo.is-out .robo-head { transform: translateX(0); }
+.robo-bubble { align-self: flex-start; }
+@media (max-width: 576px) { .robo { right: 6px; } .robo-head { margin-top: 48px; } }
