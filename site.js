@@ -148,7 +148,7 @@
         btn.textContent = open ? 'Свернуть' : 'Подробнее';
         if (open) {
           var top = card.getBoundingClientRect().top;
-          var header = document.querySelector('.header');
+          var header = document.querySelector('.nav');
           var offset = header ? header.offsetHeight + 16 : 16;
           if (top < offset || top > window.innerHeight * 0.5) {
             window.scrollTo({ top: window.pageYOffset + top - offset, behavior: 'smooth' });

@@ -211,3 +211,6 @@ a { color: inherit; }
   .is-loading .hero-back, .is-loading .hero-front, .is-loading .hero-text > *, .is-loading .hero-glass, .is-loading .nav { opacity: 1; transform: none; }
   .is-ready .hero-back { animation: none; }
 }
+
+/* Рамка у разбросанных фото */
+.sc { border: 7px solid #fff; box-shadow: 0 0 0 1.5px rgba(20,20,20,.14), 0 22px 55px rgba(0,0,0,.16); background: #fff; }
