@@ -1004,3 +1004,24 @@ body { background: #f4f3f1; color: #141414; }
 #content + .about-cta + .site-foot { border-top: 1px solid #222; }
 @media (max-width: 992px) { .site-foot { padding-left: 30px; padding-right: 30px; } .site-foot-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 576px) { .site-foot { padding: 44px 20px 24px; } .site-foot-grid { grid-template-columns: 1fr; gap: 24px; } }
+
+/* Роботик в правом нижнем углу */
+.robo { position: fixed; right: 18px; bottom: 0; z-index: 500; display: flex; align-items: flex-end; gap: 10px; pointer-events: none; }
+.robo-head { width: 92px; height: 84px; transform: translateY(110%); transition: transform .7s cubic-bezier(.2,1.4,.4,1); pointer-events: auto; cursor: pointer; filter: drop-shadow(0 6px 14px rgba(0,0,0,.18)); }
+.robo.is-out .robo-head { transform: translateY(18%); }
+.robo-bubble { position: relative; margin-bottom: 70px; max-width: 250px; padding: 14px 16px 14px; background: #ffffff; border: 1px solid #d6d3ce; border-radius: 16px 16px 4px 16px !important; box-shadow: 0 10px 30px rgba(0,0,0,.14);
+  opacity: 0; transform: translateY(10px) scale(.96); transition: opacity .4s ease .5s, transform .4s ease .5s; pointer-events: none; }
+.robo.is-out .robo-bubble { opacity: 1; transform: none; pointer-events: auto; }
+.robo.is-quiet .robo-bubble { opacity: 0; transform: translateY(10px) scale(.96); pointer-events: none; transition-delay: 0s; }
+.robo-text { display: block; font-size: 14px; color: #3a3a3a; line-height: 1.4; padding-right: 16px; }
+.robo-phone { display: inline-block; margin-top: 6px; font-size: 17px; font-weight: 800; color: #1f55c4; text-decoration: none; white-space: nowrap; }
+.robo-phone:hover { text-decoration: underline; }
+.robo-close { position: absolute; top: 4px; right: 6px; width: 26px; height: 26px; border: 0; background: none; font-size: 20px; line-height: 1; color: #8a8680; cursor: pointer; }
+.robo-close:hover { color: #141414; }
+.robo-eyes { animation: robo-blink 4.5s infinite; transform-origin: 60px 60px; }
+.robo-bulb { animation: robo-bulb 1.6s ease-in-out infinite; }
+@keyframes robo-blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.1); } }
+@keyframes robo-bulb { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+@media (max-width: 576px) { .robo { right: 8px; } .robo-head { width: 70px; height: 64px; } .robo-bubble { max-width: 200px; margin-bottom: 52px; padding: 12px 12px; } .robo-phone { font-size: 15px; } }
+@media (prefers-reduced-motion: reduce) { .robo-head, .robo-bubble { transition: none; } .robo-eyes, .robo-bulb { animation: none; } }
+.robo.is-out .robo-head { transform: translateY(8%); }
