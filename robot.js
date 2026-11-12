@@ -26,8 +26,8 @@
         '<path d="M48 90 Q60 97 72 90" fill="none" stroke="#4a4a4a" stroke-width="3" stroke-linecap="round"/>' +
       '</svg>';
     document.body.appendChild(box);
-    // появляется каждую минуту на 20 секунд
-    var SHOW_MS = 20000, EVERY_MS = 60000, stopped = false, hideT = null, cycleT = null;
+    // появляется каждую минуту на 10 секунд
+    var SHOW_MS = 10000, EVERY_MS = 60000, stopped = false, hideT = null, cycleT = null;
     function show() {
       if (stopped) return;
       box.classList.remove('is-quiet'); box.classList.add('is-out');
