@@ -787,3 +787,57 @@ body.dialog-open { overflow: hidden; }
 .tech-grid4 .srv-work-title { font-size: 14px; padding: 0 12px; }
 .tech-grid4 .srv-work-desc { font-size: 12px; padding: 0 12px; line-height: 1.45; }
 .tech-grid4 .tech-tag { margin: 2px 12px 0; font-size: 10px; padding: 3px 8px; }
+
+/* ===== Правки по ревью ===== */
+/* Меню: подсвечен текущий раздел, «Контакты» больше не обведены отдельно */
+.btn-nav-item[aria-current="page"], .btn-services-toggle.is-current { background: #ffffff; border-color: #ffffff; color: #0e0c0a; }
+.dropdown-content a[aria-current="page"] { color: #ffffff; background: #261f1a; }
+/* Заголовки и подписи — обычным регистром, без разрядки (капс остался в логотипе, меню и кнопках) */
+.service-title-main, .service-subtitle-main, .hero h1, .combined-faq-left h2, .business-text-block h3, .business-form-block h4,
+.autopark-category-title, .gallery-card-desc h3, .legal-text h2, .contacts-heading, .contact-label, .contact-action, .requisites-title, .requisites-list dt,
+.about-h2, .about-h3, .about-hero-title, .about-title, .obj-year-title, .obj-city, .obj-dlg-info dt, .obj-dlg-h, .srv-h2, .srv-item h3, .srv-steps h3,
+.doc-open, .tech-tag, .service-cta h2, .stat-title-top { text-transform: none; letter-spacing: 0; }
+.service-title-main, .hero h1, .about-hero-title { letter-spacing: -0.5px; }
+.srv-h2 { font-size: 22px; font-weight: 800; }
+.service-subtitle-main { font-size: 15px; font-weight: 500; color: #e3dbd0; }
+.contact-label, .requisites-list dt, .obj-dlg-info dt, .obj-dlg-h, .obj-city { font-size: 13px; }
+/* Главная: цифры под шапкой */
+.stat-num { display: block; font-size: clamp(28px, 3vw, 40px); font-weight: 900; line-height: 1.05; color: #ffffff; margin-bottom: 6px; }
+.stat-main-box a { color: inherit; text-decoration: none; }
+.stat-main-box a:hover .stat-num { text-decoration: underline; text-underline-offset: 6px; }
+.stat-title-top { font-weight: 500; color: #c4baae; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
+.home-block { max-width: 1240px; margin: 0 auto; padding: 70px 60px 0; }
+.home-block .srv-h2 { margin-bottom: 26px; }
+.home-lead { color: #c4baae; font-size: 15px; margin: -10px 0 24px; max-width: 900px; }
+.home-more { display: inline-block; margin-top: 22px; color: #ffffff; font-weight: 700; text-decoration: none; border-bottom: 1px solid #4a3f36; padding-bottom: 2px; }
+.home-more:hover { border-color: #ffffff; }
+.home-svc { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+.home-docs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.home-doc { display: flex; gap: 18px; align-items: center; padding: 16px; border: 1px solid #332a23; border-radius: 18px !important; text-decoration: none; color: #ffffff; background: #1c1713; transition: border-color .2s ease; }
+.home-doc:hover { border-color: #ffffff; }
+.home-doc img { width: 92px; height: auto; border-radius: 6px !important; flex: none; }
+.home-doc b { display: block; font-size: 16px; margin-bottom: 4px; }
+.home-doc span { font-size: 13px; color: #c4baae; line-height: 1.5; }
+.home-contacts p { margin-bottom: 10px; color: #c4baae; }
+.home-contacts a { color: #ffffff; }
+@media (max-width: 992px) { .home-svc { grid-template-columns: repeat(2, minmax(0, 1fr)); } .home-docs { grid-template-columns: 1fr; } .home-block { padding: 56px 30px 0; } }
+@media (max-width: 576px) { .home-svc { grid-template-columns: 1fr; } .home-block { padding: 48px 20px 0; } }
+/* Объекты: заказчик под названием */
+.obj-client { display: block; font-size: 13px; color: #e3dbd0; line-height: 1.4; text-shadow: 0 1px 6px rgba(0,0,0,.6); }
+/* Призыв в конце страниц услуг */
+.srv-cta-note { margin-top: 48px; color: #c4baae; font-size: 15px; }
+.srv-cta-note a { color: #ffffff; }
+.service-page-main + .about-cta { margin-top: 0; }
+/* Контакты: две карты */
+.contacts-maps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.contacts-maps .contacts-map { margin: 0; }
+.contacts-map-label { display: block; font-size: 13px; font-weight: 700; color: #a69e93; margin-bottom: 8px; }
+@media (max-width: 768px) { .contacts-maps { grid-template-columns: 1fr; } }
+.hero.hero-home { background-image: linear-gradient(90deg, rgba(14,12,10,.9) 0%, rgba(14,12,10,.7) 50%, rgba(14,12,10,.35) 100%), url('img/hero/home.jpg'); background-position: center 60%; min-height: 64vh; }
+.hero-home .hero-subtitle { max-width: 760px; }
+.contacts-maps { margin-top: 24px; }
+.contacts-map { border-radius: 18px !important; overflow: hidden; }
+.stat-num { font-size: clamp(22px, 2.2vw, 32px); }
+.hero.hero-home { background-image: linear-gradient(90deg, rgba(14,12,10,.85) 0%, rgba(14,12,10,.55) 50%, rgba(14,12,10,.2) 100%), url('img/hero/home.jpg'); }
+@media (max-width: 768px) { .stats-section .stats-grid-main { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 18px; } .stats-section .stat-main-box { padding-left: 14px; } .stats-section { padding: 44px 20px; } }

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://a21312732-star.github.io/belarus-site/sitemap.xml
