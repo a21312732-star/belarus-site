@@ -27,3 +27,4 @@
 | ../about/hero-n.jpg | https://wordpress.org/photos/photo/49369f4fb0/ |
 | ../about/stroika-n.jpg | https://wordpress.org/photos/photo/96165796d5/ |
 | home-n.jpg (главная) | https://wordpress.org/photos/photo/54963d8833/ |
+| home-2.jpg (главная) | https://wordpress.org/photos/photo/96165796d5/ |
