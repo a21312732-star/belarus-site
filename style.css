@@ -946,3 +946,10 @@ body { background: #f4f3f1; color: #141414; }
 @media (max-width: 1100px) { .stats-section .stats-grid-main { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 992px) { .stats-section .container-lg { padding-left: 30px !important; padding-right: 30px !important; } }
 @media (max-width: 576px) { .stats-section .stats-grid-main { grid-template-columns: 1fr; } .stats-section .container-lg { padding-left: 20px !important; padding-right: 20px !important; } .stats-section .stat-main-box { min-height: 0; padding: 18px 20px; } }
+/* Принципы без синей полосы */
+.stats-section .stat-main-box { border-left: 1px solid #d6d3ce; padding-left: 26px; }
+/* «Техника» в меню — серая, неактивная */
+.btn-nav-item.disabled, .btn-nav-item.disabled:hover { background: #f0efec; border-color: #e3e1dd; color: #a3a09b; cursor: default; }
+/* Рендеринг */
+.empty-state { border-radius: 18px !important; }
+.empty-state h2 { text-transform: none; }
