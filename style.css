@@ -936,3 +936,4 @@ body { background: #f4f3f1; color: #141414; }
 #content + .about-cta + .footer { background: #000000; border-top: 1px solid #1f1f1f; margin-top: 0; }
 #content + .about-cta + .footer p, #content + .about-cta + .footer a { color: #9a9a9a; }
 #content + .about-cta + .footer a:hover { color: #ffffff; }
+.stat-title-top.stat-slogan { font-size: 17px; font-weight: 700; color: #141414; line-height: 1.4; }
