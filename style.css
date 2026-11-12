@@ -746,3 +746,7 @@ body.dialog-open { overflow: hidden; }
   background: #000; border: 1px solid #332a23; }
 .about-cta .about-h2 { margin-bottom: 12px; }
 .about-cta p { color: #e3dbd0; }
+
+/* Техника */
+.tech-card { cursor: default; }
+.tech-tag { align-self: flex-start; margin: 4px 18px 0; padding: 4px 10px; border: 1px solid #4a3f36; border-radius: 999px !important; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a69e93; }
