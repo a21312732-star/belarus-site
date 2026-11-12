@@ -732,3 +732,11 @@ body.dialog-open { overflow: hidden; }
 .gallery-thumb, .gallery-thumb img { border-radius: 12px !important; }
 .header-logo-img { border-radius: 8px !important; }
 .hero-service-minimal.has-photo { margin: 20px clamp(14px, 2vw, 28px) 0; border-radius: 28px !important; overflow: hidden; border-bottom: 0; }
+
+/* Разрешительная документация */
+.doc-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.doc-card .doc-photo { aspect-ratio: 1 / 1.414; background: #f3efe6; padding: 14px; }
+.doc-card .doc-photo img { object-fit: contain; box-shadow: 0 6px 20px rgba(0,0,0,.25); }
+.doc-num { padding: 4px 18px 0; font-size: 12px; font-weight: 700; letter-spacing: .5px; color: #a69e93; }
+.doc-valid { padding: 2px 18px 0; font-size: 13px; color: #e3dbd0; font-weight: 600; }
+.doc-open { margin-top: auto; padding: 8px 18px 0; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #ffffff; }
