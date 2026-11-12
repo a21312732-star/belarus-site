@@ -715,3 +715,14 @@ body.dialog-open { overflow: hidden; }
 .hero-service-minimal.has-photo .service-title-main { font-size: clamp(30px, 4vw, 56px); text-shadow: 0 2px 20px rgba(0,0,0,.6); }
 .hero-service-minimal.has-photo .service-subtitle-main { text-shadow: 0 1px 10px rgba(0,0,0,.8); }
 @media (max-width: 576px) { .hero-service-minimal.has-photo { padding-top: 90px; padding-bottom: 56px; } }
+
+/* «О компании»: фото продолжается за текстом и плавно уходит в фон */
+.about-top { position: relative; background: #0e0c0a; }
+.about-top::before { content: ""; position: absolute; inset: 0 0 -80px 0; z-index: 0; pointer-events: none;
+  background: url('img/about/hero.jpg') center top / cover no-repeat; }
+.about-top::after { content: ""; position: absolute; inset: 0 0 -80px 0; z-index: 0; pointer-events: none;
+  background: linear-gradient(90deg, rgba(14,12,10,.93) 0%, rgba(14,12,10,.82) 50%, rgba(14,12,10,.6) 100%),
+              linear-gradient(180deg, rgba(14,12,10,0) 0%, rgba(14,12,10,.35) 45%, rgba(14,12,10,.85) 80%, #0e0c0a 100%); }
+.about-top > section { position: relative; z-index: 1; }
+.about-top .about-hero { background: none; border-bottom: none; }
+.about-top + .about-projects { position: relative; z-index: 1; }
