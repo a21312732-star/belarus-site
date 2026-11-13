@@ -145,7 +145,8 @@
         card.classList.toggle('is-open', open);
         det.hidden = !open;
         btn.setAttribute('aria-expanded', String(open));
-        btn.textContent = open ? 'Свернуть' : 'Подробнее';
+        btn.textContent = open ? '×' : 'Подробнее';
+        if (open) btn.setAttribute('aria-label', 'Свернуть'); else btn.removeAttribute('aria-label');
         if (open) {
           var top = card.getBoundingClientRect().top;
           var header = document.querySelector('.header');
