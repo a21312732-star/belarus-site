@@ -1100,3 +1100,4 @@ body { background: #f4f3f1; color: #141414; }
 .obj-card.is-open .obj-more:focus:not(:focus-visible) { outline: none; }
 .service-page-main .srv-checks { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 @media (min-width: 1300px) { .service-page-main .srv-checks { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+.req-download { display: inline-flex; align-items: center; gap: 8px; margin-top: 22px; text-transform: none; letter-spacing: 0; font-size: 14px; }
