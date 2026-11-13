@@ -135,6 +135,8 @@
       if (!det || !card) return;
       btn.addEventListener('click', function () {
         var open = !card.classList.contains('is-open');
+        // запоминаем, где был посетитель, чтобы после закрытия вернуть его туда же
+        if (open) card._returnY = window.pageYOffset;
         // Пока раскрыт один проект, «Подробнее» у остальных недоступна
         document.querySelectorAll('.obj-more').forEach(function (other) {
           if (other === btn) return;
@@ -147,6 +149,10 @@
         btn.setAttribute('aria-expanded', String(open));
         btn.textContent = open ? '' : 'Подробнее';
         if (open) btn.setAttribute('aria-label', 'Свернуть'); else btn.removeAttribute('aria-label');
+        if (!open && typeof card._returnY === 'number') {
+          window.scrollTo({ top: card._returnY, behavior: 'auto' });
+          card._returnY = null;
+        }
         if (open) {
           var top = card.getBoundingClientRect().top;
           var header = document.querySelector('.header');
