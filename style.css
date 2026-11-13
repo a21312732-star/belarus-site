@@ -1082,3 +1082,8 @@ body { background: #f4f3f1; color: #141414; }
 .robo-close:hover { color: #ffffff; }
 @media (prefers-reduced-motion: reduce) { .robo { transition: none; } .robo-text, .robo-phone { animation: none; } }
 .robo { transform: translate(calc(100% + 80px), -50%); } .robo.is-out { transform: translate(0, -50%); }
+/* Меню: «Услуги» такого же размера, как остальные кнопки */
+@media (min-width: 1201px) {
+  .header-center-nav .btn-nav-item, .header-center-nav .btn-services-toggle { display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 22px; font-family: inherit; line-height: 1; box-sizing: border-box; }
+  .header-center-nav .dropdown-menu-container { display: inline-flex; }
+}
