@@ -1098,3 +1098,5 @@ body { background: #f4f3f1; color: #141414; }
 .obj-card.is-open .obj-more::before { transform: translate(-50%, -50%) rotate(45deg); }
 .obj-card.is-open .obj-more::after { transform: translate(-50%, -50%) rotate(-45deg); }
 .obj-card.is-open .obj-more:focus:not(:focus-visible) { outline: none; }
+.service-page-main .srv-checks { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+@media (min-width: 1300px) { .service-page-main .srv-checks { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
