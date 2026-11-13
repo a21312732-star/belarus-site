@@ -1092,3 +1092,9 @@ body { background: #f4f3f1; color: #141414; }
   font-size: 30px; font-weight: 400; line-height: 1; letter-spacing: 0; background: rgba(255,255,255,.12); color: #ffffff; border: 1px solid rgba(255,255,255,.5); border-radius: 50% !important; }
 .obj-card.is-open .obj-more:hover { background: #ffffff; color: #0e0c0a; border-color: #ffffff; }
 .obj-card.is-open .obj-body { padding-right: 84px; }
+/* Крестик рисуется линиями — ровно по центру кружка */
+.obj-card.is-open .obj-more { font-size: 0; }
+.obj-card.is-open .obj-more::before, .obj-card.is-open .obj-more::after { content: ""; position: absolute; left: 50%; top: 50%; width: 20px; height: 2px; background: currentColor; border-radius: 1px; }
+.obj-card.is-open .obj-more::before { transform: translate(-50%, -50%) rotate(45deg); }
+.obj-card.is-open .obj-more::after { transform: translate(-50%, -50%) rotate(-45deg); }
+.obj-card.is-open .obj-more:focus:not(:focus-visible) { outline: none; }
