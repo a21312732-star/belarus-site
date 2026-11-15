@@ -1109,3 +1109,12 @@ body > .site-foot { margin-top: auto; }
 .empty-state { margin-top: 60px; }
 body > main, body > section, body > header, body > footer { width: 100%; box-sizing: border-box; }
 body > .hero-service-minimal { width: auto; align-self: stretch; }
+
+/* Мобильная версия: подсказка «Хотите связаться» поменьше */
+@media (max-width: 576px) {
+  .robo-bubble { max-width: 150px; padding: 8px 10px; border-radius: 12px 12px 4px 12px !important; }
+  .robo-text { font-size: 11px; line-height: 1.3; padding-right: 12px; }
+  .robo-phone { font-size: 12px; margin-top: 3px; }
+  .robo-close { width: 20px; height: 20px; font-size: 16px; top: 2px; right: 2px; }
+  .robo-logo { width: 48px; height: 48px; }
+}
